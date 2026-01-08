@@ -2,105 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================
-   VIDHYA SWAROOP FOUNDATION - DESIGN SYSTEM
-   Dark Mode NGO Theme with Orange Accents
-   ======================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Dark Theme Background Colors */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* Light Theme - Clean & Minimal */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    /* Card & Surface Colors */
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary Orange Brand Color */
-    --primary: 17 100% 60%;
+    /* Primary - Warm Orange */
+    --primary: 24 95% 53%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Muted Dark */
-    --secondary: 222 47% 14%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Light Gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    /* Muted Colors */
-    --muted: 222 30% 16%;
-    --muted-foreground: 215 20% 65%;
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Accent - Purple */
-    --accent: 270 50% 55%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent */
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 17 100% 60%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 95% 53%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom Colors */
-    --orange: 17 100% 60%;
-    --orange-dark: 17 100% 50%;
-    --orange-light: 17 100% 70%;
-    --orange-glow: 17 100% 60%;
-    
-    --purple: 270 50% 55%;
-    --green: 152 58% 48%;
-    --warm-yellow: 38 92% 56%;
-    
-    /* Gradients */
-    --gradient-orange: linear-gradient(135deg, hsl(17, 100%, 60%) 0%, hsl(25, 100%, 55%) 100%);
-    --gradient-dark: linear-gradient(135deg, hsl(222, 47%, 6%) 0%, hsl(222, 47%, 12%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(222, 47%, 10%) 0%, hsl(222, 47%, 8%) 100%);
-    
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(17 100% 60% / 0.2);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
-    --shadow-hover: 0 8px 32px hsl(17 100% 60% / 0.15);
+    /* Custom */
+    --orange: 24 95% 53%;
+    --orange-dark: 24 95% 45%;
+    --orange-light: 24 95% 60%;
+    --purple: 262 83% 58%;
+    --green: 142 76% 36%;
 
     /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 24 95% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 30% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 222 47% 14%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 24 95% 53%;
     --sidebar-background: 222 47% 8%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 17 100% 60%;
+    --sidebar-primary: 24 95% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 222 47% 14%;
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 17 100% 60%;
-  }
-
-  .dark {
-    /* Same as root - dark mode by default */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 17 100% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 222 47% 14%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222 30% 16%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 270 50% 55%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 17 100% 60%;
+    --sidebar-ring: 24 95% 53%;
   }
 }
 
@@ -114,119 +102,14 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/50;
-  }
-}
-
-@layer components {
-  /* Hero Section Styles */
-  .hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(25, 100%, 55%) 100%);
-  }
-
-  .hero-overlay {
-    background: linear-gradient(135deg, hsl(17 100% 60% / 0.88) 0%, hsl(25 100% 55% / 0.85) 100%);
-  }
-
-  /* Glowing Effects */
-  .glow-orange {
-    box-shadow: 0 0 40px hsl(17 100% 60% / 0.3);
-  }
-
-  .glow-text {
-    text-shadow: 0 0 30px hsl(17 100% 60% / 0.5);
-  }
-
-  /* Card Variants */
-  .card-glass {
-    background: hsl(222 47% 10% / 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(222 30% 20% / 0.5);
-  }
-
-  .card-gradient {
-    background: linear-gradient(135deg, hsl(222, 47%, 12%) 0%, hsl(222, 47%, 8%) 100%);
-  }
-
-  /* Animated Gradient Border */
-  .gradient-border {
-    position: relative;
-    background: hsl(var(--card));
-    border-radius: var(--radius);
-  }
-
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(var(--purple)) 50%, hsl(var(--green)) 100%);
-    border-radius: calc(var(--radius) + 1px);
-    z-index: -1;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-  }
-
-  .gradient-border:hover::before {
-    opacity: 1;
-  }
-
-  /* Section Styles */
-  .section-icon {
-    @apply w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6;
-    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(25, 100%, 55%) 100%);
-    box-shadow: 0 4px 20px hsl(17 100% 60% / 0.3);
-  }
-
-  /* Floating Animation */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* Pulse Glow Animation */
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(17 100% 60% / 0.3); }
-    50% { box-shadow: 0 0 40px hsl(17 100% 60% / 0.5); }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
   }
 }
 
 @layer utilities {
-  /* Text Gradient */
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(var(--orange-light)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-accent {
-    background: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(17, 100%, 70%) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--orange-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
