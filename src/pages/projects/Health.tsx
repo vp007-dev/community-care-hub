@@ -74,27 +74,19 @@ export default function Health() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
-        
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm">
+      <section className="relative py-16 md:py-20 bg-gradient-warm border-b border-border">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               🏥 Health Program
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
               Health Check-Up Camps
             </h1>
-            <p className="text-xl text-white/80">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Promoting Preventive Healthcare for a Healthier Community
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
