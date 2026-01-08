@@ -3,6 +3,7 @@ import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Spro
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
+import { HealthIllustration } from "@/components/illustrations/HealthIllustration";
 
 const objectives = [
   "Promote early detection and prevention of diseases",
@@ -74,18 +75,28 @@ export default function Health() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-20 bg-gradient-warm border-b border-border">
+      <section className="relative py-16 md:py-24 bg-gradient-warm border-b border-border overflow-hidden">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              🏥 Health Program
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-              Health Check-Up Camps
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Promoting Preventive Healthcare for a Healthier Community
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                🏥 Health Program
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
+                Health Check-Up Camps
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground">
+                Promoting Preventive Healthcare for a Healthier Community
+              </p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="hidden lg:flex justify-center"
+            >
+              <HealthIllustration className="w-80 h-80" />
+            </motion.div>
           </div>
         </div>
       </section>
