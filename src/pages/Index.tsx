@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { Heart, GraduationCap, Stethoscope, Users, ArrowRight, CheckCircle, Quote, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { CommunityIllustration } from "@/components/illustrations/CommunityIllustration";
+import { EducationIllustration } from "@/components/illustrations/EducationIllustration";
+import { HealthIllustration } from "@/components/illustrations/HealthIllustration";
+import { WomanIllustration } from "@/components/illustrations/WomanIllustration";
 import logo from "@/assets/logo.jpg";
 
 const stats = [
@@ -19,6 +23,7 @@ const programs = [
     description: "Laugh & Learn School providing NCERT-based education from Nursery to Class V with complete study materials.",
     link: "/projects/education",
     color: "from-blue-500 to-indigo-600",
+    Illustration: EducationIllustration,
   },
   {
     icon: Stethoscope,
@@ -26,6 +31,7 @@ const programs = [
     description: "Free preventive healthcare camps with screenings, consultations, and medicine distribution.",
     link: "/projects/health",
     color: "from-emerald-500 to-teal-600",
+    Illustration: HealthIllustration,
   },
   {
     icon: Users,
@@ -33,6 +39,7 @@ const programs = [
     description: "Skill development including tailoring, computer education, digital marketing, and arts.",
     link: "/projects/women-empowerment",
     color: "from-purple-500 to-pink-600",
+    Illustration: WomanIllustration,
   },
 ];
 
@@ -181,18 +188,18 @@ export default function Index() {
               >
                 <Link
                   to={program.link}
-                  className="group block h-full p-8 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                  className="group block h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${program.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                    <program.icon className="h-7 w-7 text-white" />
+                  <div className="h-32 mb-4 flex items-center justify-center">
+                    <program.Illustration className="w-28 h-28 group-hover:scale-105 transition-transform" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors text-center">
                     {program.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 text-center">
                     {program.description}
                   </p>
-                  <span className="inline-flex items-center text-primary font-medium text-sm">
+                  <span className="flex items-center justify-center text-primary font-medium text-sm">
                     Learn more
                     <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-2 transition-transform" />
                   </span>

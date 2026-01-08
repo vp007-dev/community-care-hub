@@ -3,6 +3,7 @@ import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Mus
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
+import { EducationIllustration } from "@/components/illustrations/EducationIllustration";
 
 const classes = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V"];
 
@@ -42,18 +43,28 @@ export default function Education() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-20 bg-gradient-warm border-b border-border">
+      <section className="relative py-16 md:py-24 bg-gradient-warm border-b border-border overflow-hidden">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              📚 Education Program
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-              Laugh & Learn School
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Building Strong Foundations Through Joyful Learning (Nursery to Class V)
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                📚 Education Program
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
+                Laugh & Learn School
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground">
+                Building Strong Foundations Through Joyful Learning (Nursery to Class V)
+              </p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="hidden lg:flex justify-center"
+            >
+              <EducationIllustration className="w-80 h-80" />
+            </motion.div>
           </div>
         </div>
       </section>
