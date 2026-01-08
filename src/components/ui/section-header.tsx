@@ -14,17 +14,17 @@ export function SectionHeader({ icon: Icon, title, subtitle, centered = true }: 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className={`mb-12 ${centered ? "text-center" : ""}`}
+      transition={{ duration: 0.5 }}
+      className={`mb-10 ${centered ? "text-center" : ""}`}
     >
       {Icon && (
-        <div className={`section-icon ${centered ? "" : "mx-0"}`}>
-          <Icon className="h-7 w-7 text-primary-foreground" />
+        <div className={`w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 ${centered ? "mx-auto" : ""}`}>
+          <Icon className="h-5 w-5 text-primary" />
         </div>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{title}</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{title}</h2>
       {subtitle && (
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-muted-foreground max-w-xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );
