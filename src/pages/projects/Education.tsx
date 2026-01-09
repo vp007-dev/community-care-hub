@@ -34,40 +34,30 @@ export default function Education() {
   return (
     <Layout>
       {/* Hero Section - Modern Asymmetric */}
-      <section className="relative min-h-[60vh] overflow-hidden bg-mesh flex items-center">
-        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 blob animate-float blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-violet-400/20 to-purple-500/20 blob animate-float-delayed blur-3xl" />
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <div className="hidden sm:block absolute top-10 right-20 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 blob animate-float blur-3xl" />
+        <div className="hidden sm:block absolute bottom-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-violet-400/20 to-purple-500/20 blob animate-float-delayed blur-3xl" />
         
-        <div className="container relative py-20">
+        <div className="container px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
           <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                <span className="text-xl">📚</span>
-                <span className="text-sm font-medium text-foreground">Education Program</span>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4 sm:mb-6">
+                <span className="text-lg sm:text-xl">📚</span>
+                <span className="text-xs sm:text-sm font-medium text-foreground">Education Program</span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-4 sm:mb-6">
                 Laugh & Learn{" "}
                 <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">School</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+              <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl">
                 Building strong foundations through joyful learning. NCERT-based curriculum from Nursery to Class V.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {classes.map((cls, i) => (
-                  <motion.span
-                    key={cls}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
-                    className="px-4 py-2 rounded-full bg-card border border-border text-sm font-medium text-foreground"
-                  >
+                  <motion.span key={cls} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 + i * 0.05 }} className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-card border border-border text-xs sm:text-sm font-medium text-foreground">
                     {cls}
                   </motion.span>
                 ))}
