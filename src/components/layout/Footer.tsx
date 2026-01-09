@@ -26,17 +26,17 @@ const socials = [
 export function Footer() {
   return (
     <footer className="bg-foreground text-white relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal/10 rounded-full blur-3xl" />
+      {/* Decorative Elements - Hidden on mobile for performance */}
+      <div className="hidden sm:block absolute top-0 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="hidden sm:block absolute bottom-0 right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-teal/10 rounded-full blur-3xl" />
       
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
-        <div className="container py-16">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 rounded-3xl bg-gradient-to-r from-primary/20 via-primary/10 to-teal/10 border border-white/10">
+        <div className="container px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/20 via-primary/10 to-teal/10 border border-white/10">
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold text-white mb-2">Join Our Mission</h3>
-              <p className="text-white/60">Stay updated with our latest initiatives and impact stories.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Join Our Mission</h3>
+              <p className="text-sm sm:text-base text-white/60">Stay updated with our latest initiatives and impact stories.</p>
             </div>
             <Button asChild size="lg" className="rounded-full px-8 bg-white text-foreground hover:bg-white/90 shadow-xl">
               <Link to="/contact">
@@ -49,8 +49,8 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container py-16 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container px-4 sm:px-6 lg:px-8 py-10 sm:py-16 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
@@ -161,12 +161,12 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
+        <div className="container px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-white/40 text-center sm:text-left">
             <p>© {new Date().getFullYear()} Vidhya Swaroop Foundation. All rights reserved.</p>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span>Registered NGO | Making Impact Since 3 Generations</span>
+              <span className="text-xs sm:text-sm">Registered NGO | Since 3 Generations</span>
             </div>
           </div>
         </div>

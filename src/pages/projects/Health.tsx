@@ -49,43 +49,33 @@ export default function Health() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] overflow-hidden bg-mesh flex items-center">
-        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 blob animate-float blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-500/20 blob animate-float-delayed blur-3xl" />
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <div className="hidden sm:block absolute top-10 right-20 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 blob animate-float blur-3xl" />
+        <div className="hidden sm:block absolute bottom-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-500/20 blob animate-float-delayed blur-3xl" />
         
-        <div className="container relative py-20">
+        <div className="container px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
           <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-                <span className="text-xl">🏥</span>
-                <span className="text-sm font-medium text-foreground">Healthcare Program</span>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4 sm:mb-6">
+                <span className="text-lg sm:text-xl">🏥</span>
+                <span className="text-xs sm:text-sm font-medium text-foreground">Healthcare Program</span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-4 sm:mb-6">
                 Health Check-Up{" "}
                 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">Camps</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+              <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl">
                 Promoting preventive healthcare for a healthier community. Free, accessible medical services for those who need it most.
               </p>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
                 {impacts.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + i * 0.1 }}
-                    className="p-4 rounded-2xl bg-card/80 backdrop-blur border border-border text-center"
-                  >
-                    <div className="text-2xl font-bold text-primary">{item.number}</div>
-                    <div className="text-sm text-muted-foreground">{item.label}</div>
+                  <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 + i * 0.1 }} className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-card/80 backdrop-blur border border-border text-center">
+                    <div className="text-lg sm:text-2xl font-bold text-primary">{item.number}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{item.label}</div>
                   </motion.div>
                 ))}
               </div>

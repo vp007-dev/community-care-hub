@@ -41,20 +41,20 @@ export function Header() {
         ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm" 
         : "bg-transparent"
     }`}>
-      <nav className="container">
-        <div className="flex h-20 items-center justify-between">
+      <nav className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 sm:h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
               <img
                 src={logo}
                 alt="Vidhya Swaroop Foundation"
-                className="h-12 w-12 rounded-2xl object-cover shadow-lg group-hover:shadow-xl transition-shadow"
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl object-cover shadow-lg group-hover:shadow-xl transition-shadow"
               />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-green-500 border-2 border-background" />
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-green-500 border-2 border-background" />
             </div>
             <div className="hidden sm:block">
-              <span className="text-lg font-bold text-foreground">Vidhya Swaroop</span>
+              <span className="text-base sm:text-lg font-bold text-foreground">Vidhya Swaroop</span>
               <span className="block text-xs text-muted-foreground">Foundation</span>
             </div>
           </Link>
