@@ -1,313 +1,236 @@
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Music, Baby, Calculator, Globe, PenTool } from "lucide-react";
+import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Music, Baby, Calculator, Globe, PenTool, ArrowRight, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { EducationIllustration } from "@/components/illustrations/EducationIllustration";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const classes = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V"];
 
 const subjects = [
-  { icon: PenTool, name: "English", desc: "Reading, writing, phonics, vocabulary, spoken English" },
-  { icon: BookOpen, name: "Hindi", desc: "Reading, writing, grammar, comprehension" },
-  { icon: Calculator, name: "Mathematics", desc: "Numbers, arithmetic, problem-solving, logical thinking" },
-  { icon: Globe, name: "Environmental Studies", desc: "Nature, society, science basics, civic sense" },
+  { icon: PenTool, name: "English", desc: "Reading, writing, phonics, vocabulary, spoken English", color: "from-blue-500 to-indigo-600" },
+  { icon: BookOpen, name: "Hindi", desc: "Reading, writing, grammar, comprehension", color: "from-orange-500 to-red-600" },
+  { icon: Calculator, name: "Mathematics", desc: "Numbers, arithmetic, problem-solving, logical thinking", color: "from-emerald-500 to-teal-600" },
+  { icon: Globe, name: "EVS", desc: "Nature, society, science basics, civic sense", color: "from-violet-500 to-purple-600" },
 ];
 
 const additionalAreas = [
-  { icon: BookOpen, name: "General Knowledge (GK)" },
-  { icon: Heart, name: "Moral Values & Life Skills" },
+  { icon: BookOpen, name: "General Knowledge" },
+  { icon: Heart, name: "Moral Values" },
   { icon: Palette, name: "Art & Craft" },
-  { icon: Music, name: "Rhymes, Stories & Creative Expression" },
-  { icon: GraduationCap, name: "Basic Computer Awareness" },
+  { icon: Music, name: "Creative Expression" },
+  { icon: GraduationCap, name: "Computer Basics" },
 ];
 
 const teachingMethods = [
   "Storytelling & role-play",
-  "Visual aids & learning charts",
-  "Worksheets & hands-on activities",
+  "Visual aids & charts",
+  "Hands-on activities",
   "Group discussions",
   "Games-based learning",
-  "Regular revision & practice",
-];
-
-const developmentAreas = [
-  "Confidence & communication skills",
-  "Discipline & responsibility",
-  "Emotional intelligence",
-  "Teamwork & empathy",
-  "Curiosity & creativity",
+  "Regular practice",
 ];
 
 export default function Education() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-warm border-b border-border overflow-hidden">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                📚 Education Program
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-                Laugh & Learn School
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Building Strong Foundations Through Joyful Learning (Nursery to Class V)
-              </p>
-            </div>
+      {/* Hero Section - Modern Asymmetric */}
+      <section className="relative min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 blob animate-float blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-violet-400/20 to-purple-500/20 blob animate-float-delayed blur-3xl" />
+        
+        <div className="container relative py-20">
+          <div className="max-w-4xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="hidden lg:flex justify-center"
             >
-              <EducationIllustration className="w-80 h-80" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                <span className="text-xl">📚</span>
+                <span className="text-sm font-medium text-foreground">Education Program</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+                Laugh & Learn{" "}
+                <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">School</span>
+              </h1>
+
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+                Building strong foundations through joyful learning. NCERT-based curriculum from Nursery to Class V.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {classes.map((cls, i) => (
+                  <motion.span
+                    key={cls}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
+                    className="px-4 py-2 rounded-full bg-card border border-border text-sm font-medium text-foreground"
+                  >
+                    {cls}
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className="py-20">
+      {/* Vision Card */}
+      <section className="py-20 bg-card">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              icon={Heart}
-              title="Our Vision"
-            />
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-lg text-center text-muted-foreground"
-            >
-              To provide quality, inclusive, and value-based education that nurtures curiosity, confidence, creativity, 
-              and compassion in young learners—especially children from underserved communities.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Teaching Philosophy */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={BookOpen}
-            title="Our Teaching Philosophy"
-            subtitle='We follow a "Learn with Joy" approach where education is child-centric, activity-based, concept-focused, and emotionally supportive.'
-          />
-
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto"
           >
-            <p className="text-lg text-primary font-medium italic">
-              "Children learn best when they feel safe, happy, and encouraged—and that is the core of our classroom culture."
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Classes Section */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Baby}
-            title="Classes We Offer"
-            subtitle="NCERT curriculum from Nursery to Class V"
-          />
-
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-            {classes.map((cls, index) => (
-              <motion.div
-                key={cls}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="px-6 py-3 rounded-full bg-primary/10 text-primary font-medium border border-primary/20"
-              >
-                {cls}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Subjects Section */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={PenTool}
-            title="Core Subjects"
-            subtitle="All subjects taught properly and systematically, aligned with NCERT guidelines"
-          />
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {subjects.map((subject, index) => (
-              <motion.div
-                key={subject.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-card border-border hover:border-primary/50 transition-all">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <subject.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-foreground mb-1">{subject.name}</h3>
-                        <p className="text-sm text-muted-foreground">{subject.desc}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Additional Areas */}
-          <div className="mt-12">
-            <h3 className="text-xl font-bold text-foreground text-center mb-6">Additional Learning Areas</h3>
-            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-              {additionalAreas.map((area, index) => (
-                <motion.div
-                  key={area.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
-                >
-                  <area.icon className="h-4 w-4 text-primary" />
-                  <span className="text-sm text-foreground">{area.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Teaching Methodology */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Teaching Methodology"
-            subtitle="We use interactive and engaging methods for clear understanding of concepts"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {teachingMethods.map((method, index) => (
-              <motion.div
-                key={method}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border"
-              >
-                <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-foreground">{method}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center text-primary font-medium mt-8 text-lg"
-          >
-            Our focus is not rote learning, but clear understanding of concepts.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Holistic Development */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Award}
-            title="Holistic Development Focus"
-            subtitle="Along with academics, we nurture complete growth"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {developmentAreas.map((area, index) => (
-              <motion.div
-                key={area}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 rounded-xl bg-card border border-border text-center"
-              >
-                <CheckCircle className="h-6 w-6 text-primary mx-auto mb-2" />
-                <span className="text-sm text-foreground">{area}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Section */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="Impact We Aim For"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
-            <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/20">
-              <p className="text-lg text-center text-foreground mb-6">
-                By the end of Class 5, our students are:
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {["Academically strong", "Confident readers and communicators", "Curious learners", "Morally grounded individuals"].map((item, index) => (
-                  <div key={item} className="flex items-center gap-2 text-foreground">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    {item}
-                  </div>
-                ))}
+            <div className="p-10 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl" />
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground mb-4">Our Vision</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  To provide quality, inclusive, and value-based education that nurtures curiosity, confidence, 
+                  creativity, and compassion in young learners—especially children from underserved communities.
+                </p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Commitment */}
-      <section className="py-20 bg-secondary/20">
+      {/* Core Subjects - Bento Grid */}
+      <section className="py-20 bg-background">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              Curriculum
+            </span>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Core Subjects</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive NCERT-aligned curriculum with focus on conceptual understanding
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {subjects.map((subject, i) => (
+              <motion.div
+                key={subject.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-6 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all card-hover"
+              >
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${subject.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <subject.icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{subject.name}</h3>
+                <p className="text-muted-foreground">{subject.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Additional Areas */}
+          <div className="mt-12 flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {additionalAreas.map((area, i) => (
+              <motion.div
+                key={area.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="flex items-center gap-2 px-5 py-3 rounded-full bg-card border border-border hover:border-primary/30 transition-colors"
+              >
+                <area.icon className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium text-foreground">{area.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Teaching Methods */}
+      <section className="py-20 bg-card">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+                Methodology
+              </span>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Learn with Joy Approach</h2>
+              <p className="text-muted-foreground mb-8">
+                Our teaching is child-centric, activity-based, and emotionally supportive. 
+                We focus on clear understanding of concepts, not rote learning.
+              </p>
+              <blockquote className="p-6 rounded-2xl bg-primary/5 border-l-4 border-primary italic text-foreground">
+                "Children learn best when they feel safe, happy, and encouraged."
+              </blockquote>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {teachingMethods.map((method, i) => (
+                <div
+                  key={method}
+                  className="p-4 rounded-2xl bg-background border border-border flex items-center gap-3"
+                >
+                  <CheckCircle className="h-5 w-5 text-primary shrink-0" />
+                  <span className="text-sm font-medium text-foreground">{method}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
+        <div className="absolute inset-0 pattern-dots opacity-10" />
+        <div className="container relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Heart className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-foreground mb-4">Our Commitment</h2>
-            <p className="text-xl text-primary font-medium italic mb-4">
-              "Education is not a privilege—it is a right."
+            <Sparkles className="h-12 w-12 text-white/80 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Education at the Cost of Chips
+            </h2>
+            <p className="text-xl text-white/80 mb-8">
+              Join us in shaping young minds and building a brighter future for society.
             </p>
-            <p className="text-muted-foreground">
-              Through Laugh & Learn School, we are committed to shaping young minds and building a brighter, 
-              educated future for society.
-            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full px-8 bg-white text-blue-600 hover:bg-white/90 shadow-xl">
+                <Link to="/support">
+                  <Heart className="h-5 w-5 mr-2" />
+                  Support Education
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-white/30 text-white hover:bg-white/10">
+                <Link to="/contact">
+                  Get in Touch
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
