@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, Phone, Mail, MapPin, Youtube, Facebook, Instagram, ArrowRight } from "lucide-react";
+import { Heart, Phone, Mail, MapPin, Youtube, Facebook, Instagram, ArrowUpRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
@@ -17,60 +17,78 @@ const supportLinks = [
   { name: "Volunteer", href: "/contact" },
 ];
 
+const socials = [
+  { icon: Youtube, href: "https://youtube.com/@vidhyaswaroopfoundation", color: "hover:bg-red-500" },
+  { icon: Facebook, href: "https://facebook.com/vidhyaswaroopfoundation", color: "hover:bg-blue-600" },
+  { icon: Instagram, href: "https://instagram.com/vidhyaswaroopfoundation", color: "hover:bg-pink-600" },
+];
+
 export function Footer() {
   return (
-    <footer className="bg-foreground text-white">
+    <footer className="bg-foreground text-white relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal/10 rounded-full blur-3xl" />
+      
+      {/* Newsletter Section */}
+      <div className="border-b border-white/10">
+        <div className="container py-16">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 rounded-3xl bg-gradient-to-r from-primary/20 via-primary/10 to-teal/10 border border-white/10">
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl font-bold text-white mb-2">Join Our Mission</h3>
+              <p className="text-white/60">Stay updated with our latest initiatives and impact stories.</p>
+            </div>
+            <Button asChild size="lg" className="rounded-full px-8 bg-white text-foreground hover:bg-white/90 shadow-xl">
+              <Link to="/contact">
+                Get Involved
+                <ArrowUpRight className="h-4 w-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer */}
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container py-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Vidhya Swaroop Foundation" className="h-12 w-12 rounded-xl object-cover" />
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
+              <img src={logo} alt="Vidhya Swaroop Foundation" className="h-14 w-14 rounded-2xl object-cover shadow-lg" />
               <div>
-                <span className="text-lg font-bold text-white">Vidhya Swaroop</span>
-                <span className="block text-xs text-white/60">Foundation</span>
+                <span className="text-xl font-bold text-white">Vidhya Swaroop</span>
+                <span className="block text-sm text-white/50">Foundation</span>
               </div>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-white/60 leading-relaxed mb-6">
               Empowering communities through education, healthcare, and skill development since 3 generations.
             </p>
             <div className="flex items-center gap-2">
-              <a
-                href="https://youtube.com/@vidhyaswaroopfoundation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-red-500 flex items-center justify-center transition-colors"
-              >
-                <Youtube className="h-4 w-4" />
-              </a>
-              <a
-                href="https://facebook.com/vidhyaswaroopfoundation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://instagram.com/vidhyaswaroopfoundation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-pink-600 flex items-center justify-center transition-colors"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
+              {socials.map((social) => (
+                <a
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-11 h-11 rounded-xl bg-white/10 ${social.color} flex items-center justify-center transition-all duration-300 hover:scale-110`}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-primary rounded-full" />
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="h-3 w-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  <Link to={link.href} className="text-white/60 hover:text-white transition-colors flex items-center gap-2 group">
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.name}
                   </Link>
                 </li>
@@ -80,50 +98,61 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Support</h4>
+            <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-teal rounded-full" />
+              Support
+            </h4>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="h-3 w-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  <Link to={link.href} className="text-white/60 hover:text-white transition-colors flex items-center gap-2 group">
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-              <p className="text-xs text-white/60 flex items-center gap-2">
-                <Heart className="h-4 w-4 text-primary" />
-                80G Tax Benefits Available
-              </p>
+            <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <Heart className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">80G Certified</div>
+                  <div className="text-xs text-white/50">Tax Benefits Available</div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Contact</h4>
-            <ul className="space-y-3 text-sm text-white/60">
+            <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-amber-500 rounded-full" />
+              Contact
+            </h4>
+            <ul className="space-y-4">
               <li>
-                <a href="tel:+919528219780" className="flex items-center gap-3 hover:text-white transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Phone className="h-4 w-4" />
+                <a href="tel:+919528219780" className="flex items-center gap-4 text-white/60 hover:text-white transition-colors group">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <Phone className="h-5 w-5" />
                   </div>
-                  +91 95282 19780
+                  <span>+91 95282 19780</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info.vidhyaswaroopfoundation@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Mail className="h-4 w-4" />
+                <a href="mailto:info.vidhyaswaroopfoundation@gmail.com" className="flex items-start gap-4 text-white/60 hover:text-white transition-colors group">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors shrink-0">
+                    <Mail className="h-5 w-5" />
                   </div>
-                  <span className="break-all">info.vidhyaswaroopfoundation@gmail.com</span>
+                  <span className="break-all text-sm pt-2">info.vidhyaswaroopfoundation@gmail.com</span>
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                  <MapPin className="h-4 w-4" />
+              <li className="flex items-start gap-4 text-white/60">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                  <MapPin className="h-5 w-5" />
                 </div>
-                Agra, Uttar Pradesh, India
+                <span className="pt-2">Agra, Uttar Pradesh, India</span>
               </li>
             </ul>
           </div>
@@ -131,13 +160,15 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-6">
-        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
-          <p>© {new Date().getFullYear()} Vidhya Swaroop Foundation. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Registered NGO | 80G Certified
-          </p>
+      <div className="border-t border-white/10">
+        <div className="container py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
+            <p>© {new Date().getFullYear()} Vidhya Swaroop Foundation. All rights reserved.</p>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span>Registered NGO | Making Impact Since 3 Generations</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

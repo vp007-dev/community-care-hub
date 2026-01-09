@@ -1,76 +1,64 @@
 import { motion } from "framer-motion";
-import { Users, Heart, Monitor, Scissors, Smartphone, Music, Palette, Target, CheckCircle, Award, Sparkles, Briefcase } from "lucide-react";
+import { Users, Heart, Monitor, Scissors, Smartphone, Music, Palette, Target, CheckCircle, Sparkles, Briefcase } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { WomanIllustration } from "@/components/illustrations/WomanIllustration";
-
-const objectives = [
-  "Gain employable skills",
-  "Become financially independent",
-  "Express creativity and talent",
-  "Improve physical and mental well-being",
-  "Build confidence and leadership",
-];
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const programs = [
   {
     icon: Monitor,
     title: "Computer Education",
-    color: "bg-blue-500/20 text-blue-400",
-    description: "Basic to intermediate computer training to improve digital literacy",
-    items: ["Computer fundamentals", "MS Word, Excel, PowerPoint", "Internet usage & email", "Online safety & digital awareness", "Introduction to work-from-home opportunities"],
+    description: "Digital literacy and work-from-home opportunities",
+    items: ["MS Office", "Internet & email", "Online safety", "Freelancing basics"],
+    color: "from-blue-500 to-indigo-600",
+    bgColor: "from-blue-50 to-indigo-50",
   },
   {
     icon: Scissors,
     title: "Tailoring & Stitching",
-    color: "bg-pink-500/20 text-pink-400",
     description: "Income-generating skills for self-employment",
-    items: ["Basic & advanced stitching", "Cutting & measurements", "Machine handling", "Simple fashion designing", "Small business guidance"],
+    items: ["Advanced stitching", "Fashion designing", "Business guidance", "Machine handling"],
+    color: "from-rose-500 to-pink-600",
+    bgColor: "from-rose-50 to-pink-50",
   },
   {
     icon: Smartphone,
     title: "Digital Marketing",
-    color: "bg-green-500/20 text-green-400",
-    description: "Modern employment and entrepreneurship skills",
-    items: ["Social media basics (Instagram, Facebook)", "Content creation fundamentals", "Online promotion for small businesses", "Digital tools for entrepreneurship", "Freelancing awareness"],
+    description: "Modern entrepreneurship skills",
+    items: ["Social media", "Content creation", "Online promotion", "Freelancing"],
+    color: "from-emerald-500 to-teal-600",
+    bgColor: "from-emerald-50 to-teal-50",
   },
   {
     icon: Music,
     title: "Classical Music",
-    color: "bg-purple-500/20 text-purple-400",
-    description: "Music education for mental peace and cultural values",
-    items: ["Introduction to Indian classical music", "Voice training & rhythm (taal)", "Basic raagas", "Cultural expression & confidence building"],
+    description: "Cultural expression and confidence",
+    items: ["Voice training", "Rhythm basics", "Indian classical", "Performance skills"],
+    color: "from-violet-500 to-purple-600",
+    bgColor: "from-violet-50 to-purple-50",
   },
   {
     icon: Palette,
-    title: "Painting & Creative Arts",
-    color: "bg-orange-500/20 text-orange-400",
-    description: "Art as a tool for expression and healing",
-    items: ["Drawing & painting techniques", "Color theory", "Creative expression", "Art for relaxation & confidence"],
+    title: "Painting & Arts",
+    description: "Creative expression and healing",
+    items: ["Drawing techniques", "Color theory", "Art therapy", "Creative expression"],
+    color: "from-amber-500 to-orange-600",
+    bgColor: "from-amber-50 to-orange-50",
   },
 ];
 
-const teachingApproach = [
-  "Practical & hands-on training",
-  "Simple, beginner-friendly methods",
-  "Supportive learning environment",
-  "Flexible batches for women",
-  "Focus on confidence and self-belief",
-];
-
-const empowermentFocus = [
-  { icon: Briefcase, label: "Economic independence" },
-  { icon: Monitor, label: "Digital confidence" },
-  { icon: Sparkles, label: "Creative skills" },
-  { icon: Heart, label: "Physical & mental well-being" },
-  { icon: Users, label: "Social confidence" },
+const empowermentPillars = [
+  { icon: Briefcase, label: "Economic Independence", desc: "Financial self-reliance through skills" },
+  { icon: Monitor, label: "Digital Confidence", desc: "Navigate the digital world" },
+  { icon: Sparkles, label: "Creative Skills", desc: "Express through art & music" },
+  { icon: Heart, label: "Well-being", desc: "Physical & mental health" },
+  { icon: Users, label: "Social Confidence", desc: "Leadership & community" },
 ];
 
 const outcomes = [
   "Confident decision-makers",
-  "Skilled professionals or entrepreneurs",
-  "Role models for their families",
+  "Skilled professionals",
+  "Role models for families",
   "Active contributors to society",
 ];
 
@@ -78,249 +66,186 @@ export default function WomenEmpowerment() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-warm border-b border-border overflow-hidden">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                💪 Women Empowerment
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-                Education & Skill Development
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Empowering Women Through Education, Skills & Self-Confidence
-              </p>
-            </div>
+      <section className="relative min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-rose-400/20 to-pink-500/20 blob animate-float blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-violet-400/20 to-purple-500/20 blob animate-float-delayed blur-3xl" />
+        
+        <div className="container relative py-20">
+          <div className="max-w-4xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="hidden lg:flex justify-center"
             >
-              <WomanIllustration className="w-80 h-80" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/20 mb-6">
+                <span className="text-xl">✨</span>
+                <span className="text-sm font-medium text-foreground">Women Empowerment</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+                Skills for{" "}
+                <span className="bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">Independence</span>
+              </h1>
+
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+                Empowering women through education, vocational skills, and self-confidence. 
+                Because empowered women build empowered families and communities.
+              </p>
+
+              <Button asChild size="lg" className="rounded-full px-8 h-14 shine shadow-xl shadow-primary/25">
+                <Link to="/support">
+                  <Heart className="h-5 w-5 mr-2" />
+                  Support This Cause
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="py-20">
+      {/* Programs Grid */}
+      <section className="py-20 bg-card">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-14"
           >
-            <p className="text-xl text-primary font-medium mb-4">
-              We believe that empowered women build empowered families and communities.
-            </p>
-            <p className="text-muted-foreground">
-              Our Women Empowerment Education Program focuses on skill development, creativity, health, 
-              and financial independence, enabling women and girls to become confident, self-reliant, and socially strong.
+            <span className="inline-block px-4 py-1.5 rounded-full bg-rose-500/10 text-rose-600 text-sm font-semibold mb-4">
+              Programs
+            </span>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Skill-Based Learning</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Practical, hands-on training designed to create financial independence
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Objectives */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Target}
-            title="Our Objective"
-            subtitle="To provide practical education and vocational training that helps women:"
-          />
-
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {objectives.map((objective, index) => (
-              <motion.div
-                key={objective}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex items-center gap-2 px-5 py-3 rounded-full bg-card border border-border"
-              >
-                <CheckCircle className="h-4 w-4 text-primary" />
-                <span className="text-foreground">{objective}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Programs Section */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Award}
-            title="Our Skill-Based Learning Programs"
-          />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {programs.map((program, index) => (
+            {programs.map((program, i) => (
               <motion.div
                 key={program.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: i * 0.1 }}
+                className={`group p-6 rounded-3xl bg-gradient-to-br ${program.bgColor} border border-border/50 hover:border-rose-500/30 transition-all card-hover relative overflow-hidden`}
               >
-                <Card className="h-full bg-card border-border hover:border-primary/50 transition-all">
-                  <CardContent className="p-6">
-                    <div className={`w-12 h-12 rounded-xl ${program.color} flex items-center justify-center mb-4`}>
-                      <program.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="font-bold text-foreground mb-2">{program.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{program.description}</p>
-                    <ul className="space-y-2">
-                      {program.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Teaching Approach */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Teaching Approach"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {teachingApproach.map((approach, index) => (
-              <motion.div
-                key={approach}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 rounded-xl bg-card border border-border text-center"
-              >
-                <CheckCircle className="h-6 w-6 text-primary mx-auto mb-2" />
-                <span className="text-sm text-foreground">{approach}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Holistic Empowerment Focus */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Sparkles}
-            title="Holistic Empowerment Focus"
-            subtitle="Our programs aim to develop:"
-          />
-
-          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            {empowermentFocus.map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border"
-              >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                  <item.icon className="h-7 w-7 text-primary" />
+                <div className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${program.color} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity`} />
+                <div className="relative">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${program.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <program.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{program.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{program.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {program.items.map((item) => (
+                      <span key={item} className="px-3 py-1 rounded-full bg-white/80 text-xs font-medium text-foreground">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <span className="font-medium text-foreground">{item.label}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Inclusive Environment */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Heart}
-            title="Inclusive & Supportive Environment"
-          />
-
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {[
-              "Safe and respectful learning spaces",
-              "Equal opportunities for all women",
-              "Encouragement without judgment",
-              "Community support and mentorship",
-            ].map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border"
-              >
-                <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-foreground">{item}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Award}
-            title="Impact We Aim To Create"
-            subtitle="Through education and skills, women become:"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {outcomes.map((outcome, index) => (
-              <motion.div
-                key={outcome}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 text-center"
-              >
-                <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
-                <span className="font-medium text-foreground">{outcome}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Commitment */}
-      <section className="py-20 bg-secondary/20">
+      {/* Empowerment Pillars */}
+      <section className="py-20 bg-background">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+              Holistic Approach
+            </span>
+            <h2 className="text-4xl font-bold text-foreground mb-4">5 Pillars of Empowerment</h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            {empowermentPillars.map((pillar, i) => (
+              <motion.div
+                key={pillar.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group text-center p-6 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all card-hover"
+              >
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <pillar.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-foreground mb-2">{pillar.label}</h3>
+                <p className="text-sm text-muted-foreground">{pillar.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Outcomes */}
+      <section className="py-20 bg-card">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-10 rounded-3xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-full blur-3xl" />
+              <div className="relative text-center">
+                <Sparkles className="h-12 w-12 text-rose-500 mx-auto mb-6" />
+                <h2 className="text-3xl font-bold text-foreground mb-6">Women Become</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {outcomes.map((outcome) => (
+                    <div key={outcome} className="flex items-center gap-3 p-4 rounded-2xl bg-white/80 border border-rose-100">
+                      <CheckCircle className="h-5 w-5 text-rose-500 shrink-0" />
+                      <span className="font-medium text-foreground">{outcome}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-rose-500 to-pink-600 relative overflow-hidden">
+        <div className="absolute inset-0 pattern-dots opacity-10" />
+        <div className="container relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Heart className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-foreground mb-4">Our Commitment</h2>
-            <p className="text-xl text-primary font-medium italic mb-4">
-              "Women empowerment is not just about skills—it is about dignity, opportunity, and self-worth."
+            <Heart className="h-12 w-12 text-white/80 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Empowerment is About Dignity & Self-Worth
+            </h2>
+            <p className="text-xl text-white/80 mb-8">
+              Help every woman realize her true potential through education and skills.
             </p>
-            <p className="text-muted-foreground">
-              Through education, creativity, and wellness, we strive to help every woman realize her true potential.
-            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full px-8 bg-white text-rose-600 hover:bg-white/90 shadow-xl">
+                <Link to="/support">
+                  <Heart className="h-5 w-5 mr-2" />
+                  Support Women
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-white/30 text-white hover:bg-white/10">
+                <Link to="/contact">
+                  Get in Touch
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>

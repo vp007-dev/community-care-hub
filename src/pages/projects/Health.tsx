@@ -1,315 +1,235 @@
 import { motion } from "framer-motion";
 import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Sprout, HandHeart, Award, CheckCircle } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { HealthIllustration } from "@/components/illustrations/HealthIllustration";
-
-const objectives = [
-  "Promote early detection and prevention of diseases",
-  "Increase health awareness among communities",
-  "Reduce healthcare inequalities",
-  "Encourage regular medical check-ups",
-  "Improve overall community well-being",
-];
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
     icon: Activity,
-    title: "Basic Health Screening",
-    items: ["Blood pressure monitoring", "Blood sugar testing", "Body Mass Index (BMI) assessment", "Pulse and oxygen level checks"],
+    title: "Health Screening",
+    items: ["Blood pressure", "Blood sugar", "BMI assessment", "Oxygen levels"],
+    color: "from-emerald-500 to-teal-600",
   },
   {
     icon: Stethoscope,
     title: "Diagnostic Tests",
-    items: ["Hemoglobin (Hb) test", "Random blood sugar test", "Vision screening", "General physical examination"],
+    items: ["Hemoglobin test", "Vision screening", "Physical examination", "Health assessment"],
+    color: "from-blue-500 to-cyan-600",
   },
   {
     icon: Users,
-    title: "Medical Consultation",
-    items: ["One-to-one consultation with doctors", "Health assessment and diagnosis", "Guidance on lifestyle-related conditions", "Referral to hospitals when required"],
+    title: "Consultation",
+    items: ["Doctor consultation", "Lifestyle guidance", "Hospital referrals", "Follow-up care"],
+    color: "from-violet-500 to-purple-600",
   },
   {
     icon: Pill,
-    title: "Medicine Distribution",
-    items: ["Free basic medicines", "Nutritional supplements (where applicable)", "Prescription guidance"],
-  },
-  {
-    icon: BookOpen,
-    title: "Health Awareness & Counseling",
-    items: ["Nutrition and balanced diet guidance", "Personal hygiene and sanitation awareness", "Maternal and child health education", "Lifestyle disease prevention", "Mental health awareness"],
+    title: "Medicine",
+    items: ["Free medicines", "Supplements", "Prescription guidance", "Nutrition advice"],
+    color: "from-rose-500 to-pink-600",
   },
 ];
 
 const beneficiaries = [
-  { icon: Home, label: "Rural and urban underserved communities" },
-  { icon: Users, label: "Women and children" },
+  { icon: Home, label: "Underserved communities" },
+  { icon: Users, label: "Women & children" },
   { icon: Heart, label: "Senior citizens" },
-  { icon: HandHeart, label: "Daily wage workers" },
-  { icon: Users, label: "Low-income families" },
+  { icon: HandHeart, label: "Low-income families" },
 ];
 
-const engagementApproach = [
-  "Collaboration with local leaders and volunteers",
-  "Awareness drives prior to camps",
-  "Culturally sensitive communication",
-  "Respectful and patient-centered care",
-];
-
-const longTermImpact = [
-  "Reduce preventable illnesses",
-  "Improve health-seeking behavior",
-  "Create awareness about early diagnosis",
-  "Strengthen community trust in healthcare systems",
-  "Promote a culture of preventive healthcare",
-];
-
-const partnerships = [
-  "CSR partnerships",
-  "Hospitals and medical institutions",
-  "Volunteer doctors and healthcare professionals",
-  "Local administration support",
+const impacts = [
+  { number: "500+", label: "People Served" },
+  { number: "10+", label: "Health Camps" },
+  { number: "100%", label: "Free Service" },
+  { number: "50+", label: "Volunteers" },
 ];
 
 export default function Health() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-warm border-b border-border overflow-hidden">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                🏥 Health Program
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-                Health Check-Up Camps
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Promoting Preventive Healthcare for a Healthier Community
-              </p>
-            </div>
+      <section className="relative min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 blob animate-float blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-500/20 blob animate-float-delayed blur-3xl" />
+        
+        <div className="container relative py-20">
+          <div className="max-w-4xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="hidden lg:flex justify-center"
             >
-              <HealthIllustration className="w-80 h-80" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
+                <span className="text-xl">🏥</span>
+                <span className="text-sm font-medium text-foreground">Healthcare Program</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+                Health Check-Up{" "}
+                <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">Camps</span>
+              </h1>
+
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+                Promoting preventive healthcare for a healthier community. Free, accessible medical services for those who need it most.
+              </p>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {impacts.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + i * 0.1 }}
+                    className="p-4 rounded-2xl bg-card/80 backdrop-blur border border-border text-center"
+                  >
+                    <div className="text-2xl font-bold text-primary">{item.number}</div>
+                    <div className="text-sm text-muted-foreground">{item.label}</div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="py-20">
+      {/* Services Grid */}
+      <section className="py-20 bg-card">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-14"
           >
-            <p className="text-lg text-muted-foreground">
-              Access to basic healthcare is a fundamental right, yet many communities remain underserved. 
-              Our Health Check-Up Camps are designed to bridge this gap by providing free, accessible, 
-              and preventive healthcare services to individuals and families who need them most.
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 text-sm font-semibold mb-4">
+              Services
+            </span>
+            <h2 className="text-4xl font-bold text-foreground mb-4">What We Offer</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive healthcare services with qualified doctors and healthcare professionals
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Objectives Section */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Target}
-            title="Objective of the Program"
-          />
-
-          <div className="max-w-3xl mx-auto">
-            <div className="grid sm:grid-cols-2 gap-4">
-              {objectives.map((objective, index) => (
-                <motion.div
-                  key={objective}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border"
-                >
-                  <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                  <span className="text-foreground">{objective}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Stethoscope}
-            title="Services Offered in Health Check-Up Camps"
-            subtitle="Our camps are conducted with qualified doctors, nurses, and healthcare professionals"
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {services.map((service, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {services.map((service, i) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-6 rounded-3xl bg-background border border-border hover:border-emerald-500/30 transition-all card-hover"
               >
-                <Card className="h-full bg-card border-border hover:border-primary/50 transition-all">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
-                      <service.icon className="h-6 w-6 text-green-400" />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <service.icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-4">{service.title}</h3>
+                <ul className="space-y-2">
+                  {service.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="py-20 bg-background">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+                Our Focus
+              </span>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Who We Serve</h2>
+              <p className="text-muted-foreground mb-8">
+                Access to basic healthcare is a fundamental right. We bridge the gap by providing 
+                free, accessible, and preventive healthcare services to communities that need them most.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {beneficiaries.map((item, i) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-bold text-foreground mb-3">{service.title}</h3>
-                    <ul className="space-y-2">
-                      {service.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-green-400 shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <span className="text-sm font-medium text-foreground">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100">
+                <Sprout className="h-12 w-12 text-emerald-500 mb-6" />
+                <h3 className="text-2xl font-bold text-foreground mb-4">Long-Term Impact</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Reduce preventable illnesses",
+                    "Improve health-seeking behavior",
+                    "Create early diagnosis awareness",
+                    "Promote preventive healthcare culture"
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-muted-foreground">
+                      <CheckCircle className="h-5 w-5 text-emerald-500 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Beneficiaries Section */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Target Beneficiaries"
-          />
-
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {beneficiaries.map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border"
-              >
-                <item.icon className="h-5 w-5 text-primary" />
-                <span className="text-foreground">{item.label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Community Engagement */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={HandHeart}
-            title="Community Engagement Approach"
-          />
-
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {engagementApproach.map((approach, index) => (
-              <motion.div
-                key={approach}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border"
-              >
-                <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                <span className="text-foreground">{approach}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Long-term Impact */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Sprout}
-            title="Long-Term Impact"
-            subtitle="Through regular health camps, we aim to create lasting change"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {longTermImpact.map((impact, index) => (
-              <motion.div
-                key={impact}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 rounded-xl bg-card border border-border text-center"
-              >
-                <CheckCircle className="h-6 w-6 text-green-400 mx-auto mb-2" />
-                <span className="text-sm text-foreground">{impact}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partnerships */}
-      <section className="py-20">
-        <div className="container">
-          <SectionHeader
-            icon={Award}
-            title="Partnerships & Support"
-            subtitle="Our health camps are made possible through:"
-          />
-
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-            {partnerships.map((partner, index) => (
-              <motion.div
-                key={partner}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="px-6 py-3 rounded-full bg-primary/10 text-primary font-medium border border-primary/20"
-              >
-                {partner}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Commitment */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden">
+        <div className="absolute inset-0 pattern-dots opacity-10" />
+        <div className="container relative">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Heart className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-foreground mb-4">Our Commitment</h2>
-            <p className="text-xl text-primary font-medium italic mb-4">
-              "Good health is the foundation of a productive and dignified life."
+            <Heart className="h-12 w-12 text-white/80 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Good Health is a Right, Not a Privilege
+            </h2>
+            <p className="text-xl text-white/80 mb-8">
+              Help us deliver compassionate healthcare to those left behind due to lack of access.
             </p>
-            <p className="text-muted-foreground">
-              Through our Health Check-Up Camps, we remain committed to delivering compassionate, preventive, 
-              and inclusive healthcare, ensuring that no one is left behind due to lack of access or awareness.
-            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full px-8 bg-white text-emerald-600 hover:bg-white/90 shadow-xl">
+                <Link to="/support">
+                  <Heart className="h-5 w-5 mr-2" />
+                  Support Healthcare
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-white/30 text-white hover:bg-white/10">
+                <Link to="/contact">
+                  Get in Touch
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>

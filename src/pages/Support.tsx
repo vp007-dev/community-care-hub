@@ -1,75 +1,60 @@
 import { motion } from "framer-motion";
-import { Heart, Building2, QrCode, Award, CreditCard, Users, HandHeart, Banknote } from "lucide-react";
+import { Heart, Building2, QrCode, Award, CreditCard, Users, HandHeart, Banknote, CheckCircle, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const donationAmounts = [500, 1000, 2500, 5000, 10000, 25000];
 
-const supporters = [
-  {
-    name: "Bharat Vikas Parishad Annapurna",
-    description: "A national organization dedicated to the overall development of Indian society through various social, educational, and cultural initiatives.",
-  },
-  {
-    name: "India Rising",
-    description: "A movement focused on empowering underprivileged communities through education, healthcare, and sustainable development programs.",
-  },
-  {
-    name: "Lions Club Supreme",
-    description: "Part of the international Lions Clubs network, dedicated to community service, healthcare camps, and educational support for the needy.",
-  },
-  {
-    name: "State Bank of India",
-    description: "India's largest public sector bank, supporting our foundation through CSR initiatives and financial literacy programs.",
-  },
+const impactStats = [
+  { number: "1000+", label: "Students Educated", icon: Users, color: "from-blue-500 to-indigo-600" },
+  { number: "4867+", label: "Items Donated", icon: HandHeart, color: "from-rose-500 to-pink-600" },
+  { number: "3", label: "Generations", icon: Heart, color: "from-amber-500 to-orange-600" },
+  { number: "₹Chips", label: "Education Cost", icon: Banknote, color: "from-emerald-500 to-teal-600" },
 ];
 
-const impactStats = [
-  { number: "1000+", label: "Students Educated", icon: Users },
-  { number: "4867+", label: "Items Donated", icon: HandHeart },
-  { number: "3", label: "Generations of Service", icon: Heart },
-  { number: "₹Chips", label: "Cost of Education", icon: Banknote },
+const benefits = [
+  "Quality education at minimal cost",
+  "Complete study materials & uniforms",
+  "Skill development for adults",
+  "Health check-up camps",
+  "Annual donation drives",
 ];
 
 export default function Support() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-20 bg-gradient-warm border-b border-border">
-        <div className="container">
+      {/* Hero */}
+      <section className="relative min-h-[50vh] overflow-hidden bg-mesh flex items-center">
+        <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-br from-primary/20 to-amber-500/20 blob animate-float blur-3xl" />
+        <div className="container relative py-20">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              Support
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
-              Support Our Mission
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Your contribution transforms lives through education
-            </p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <Heart className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium text-foreground">Support Our Mission</span>
+              </div>
+              <h1 className="text-5xl sm:text-6xl font-bold text-foreground mb-6">
+                Make a <span className="text-gradient">Difference</span>
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                Every contribution transforms lives through education, healthcare, and empowerment.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Impact Stats */}
-      <section className="py-16 bg-secondary/30 border-y border-border">
+      {/* Stats */}
+      <section className="py-16 bg-card border-y border-border">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {impactStats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon className="h-7 w-7 text-primary" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {impactStats.map((stat, i) => (
+              <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
+                <div className={`w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-3 shadow-lg`}>
+                  <stat.icon className="h-7 w-7 text-white" />
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.number}</div>
+                <div className="text-2xl font-bold text-foreground">{stat.number}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
@@ -78,174 +63,66 @@ export default function Support() {
       </section>
 
       {/* Donation Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container">
-          <SectionHeader
-            icon={Heart}
-            title="Make a Donation"
-            subtitle="Every contribution, big or small, helps us continue our mission"
-          />
-
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Donation Options */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-card border-border">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
-                      <Heart className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground">Choose Amount</h3>
-                      <p className="text-sm text-muted-foreground">Select a donation amount</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    {donationAmounts.map((amount) => (
-                      <button
-                        key={amount}
-                        className="py-3 px-4 rounded-xl bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground font-medium transition-all border border-border hover:border-primary"
-                      >
-                        ₹{amount.toLocaleString()}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="mb-6">
-                    <input
-                      type="number"
-                      placeholder="Enter custom amount"
-                      className="w-full py-3 px-4 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2 py-6 text-lg">
-                    <CreditCard className="h-5 w-5" />
-                    Donate Now
-                  </Button>
-
-                  <p className="text-sm text-muted-foreground mt-4 text-center flex items-center justify-center gap-2">
-                    <Award className="h-4 w-4 text-primary" />
-                    80G Tax benefits available. Your donation is 100% secure.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* QR Code Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-card border-border h-full">
-                <CardContent className="p-8 flex flex-col items-center justify-center h-full">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <QrCode className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2 text-center">Scan to Donate</h3>
-                  <p className="text-sm text-muted-foreground mb-6 text-center">
-                    Use any UPI app to scan and donate instantly
-                  </p>
-                  
-                  {/* QR Code Placeholder */}
-                  <div className="w-48 h-48 rounded-2xl bg-white flex items-center justify-center mb-6">
-                    <div className="w-40 h-40 bg-secondary/50 rounded-xl flex items-center justify-center">
-                      <QrCode className="h-20 w-20 text-muted-foreground" />
-                    </div>
-                  </div>
-
-                  <p className="text-sm text-muted-foreground text-center">
-                    UPI ID: vidhyaswaroopfoundation@upi
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Supporters Section */}
-      <section className="py-20 bg-secondary/20">
-        <div className="container">
-          <SectionHeader
-            icon={Building2}
-            title="Our Supporters"
-            subtitle="We are grateful to our partners who make our mission possible"
-          />
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {supporters.map((supporter, index) => (
-              <motion.div
-                key={supporter.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-card border-border hover:border-primary/50 transition-all">
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <Building2 className="h-7 w-7 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground mb-2">{supporter.name}</h3>
-                        <p className="text-muted-foreground">{supporter.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Support Section */}
-      <section className="py-20">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl font-bold text-foreground mb-6">Why Support Us?</h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                Your donation directly impacts the lives of children and families in need. 
-                We ensure that every rupee is used transparently and efficiently to provide:
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-8 rounded-3xl bg-card border border-border">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center mb-6 shadow-lg">
+                <Heart className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-foreground mb-2">Choose Amount</h2>
+              <p className="text-muted-foreground mb-6">Select a donation amount or enter custom</p>
+              
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                {donationAmounts.map((amount) => (
+                  <button key={amount} className="py-3 px-4 rounded-xl bg-secondary hover:bg-primary hover:text-white font-medium transition-all border border-border hover:border-primary">
+                    ₹{amount.toLocaleString()}
+                  </button>
+                ))}
+              </div>
+              
+              <input type="number" placeholder="Enter custom amount" className="w-full py-3 px-4 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none mb-6" />
+              
+              <Button className="w-full h-14 text-lg rounded-xl shine shadow-lg shadow-primary/25">
+                <CreditCard className="h-5 w-5 mr-2" />
+                Donate Now
+              </Button>
+              
+              <p className="text-sm text-muted-foreground mt-4 text-center flex items-center justify-center gap-2">
+                <Award className="h-4 w-4 text-primary" />
+                80G Tax benefits available
               </p>
-              <ul className="text-left space-y-2 max-w-lg mx-auto">
-                <li className="flex items-center gap-2">
-                  <Heart className="h-4 w-4 text-primary shrink-0" />
-                  Quality education at minimal cost
-                </li>
-                <li className="flex items-center gap-2">
-                  <Heart className="h-4 w-4 text-primary shrink-0" />
-                  Complete study materials and uniforms
-                </li>
-                <li className="flex items-center gap-2">
-                  <Heart className="h-4 w-4 text-primary shrink-0" />
-                  Skill development for adults
-                </li>
-                <li className="flex items-center gap-2">
-                  <Heart className="h-4 w-4 text-primary shrink-0" />
-                  Health check-up camps
-                </li>
-                <li className="flex items-center gap-2">
-                  <Heart className="h-4 w-4 text-primary shrink-0" />
-                  Annual donation drives
-                </li>
-              </ul>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-amber-500/5 border border-primary/20 flex flex-col items-center justify-center">
+              <QrCode className="h-12 w-12 text-primary mb-4" />
+              <h3 className="text-xl font-bold text-foreground mb-2">Scan to Donate</h3>
+              <p className="text-sm text-muted-foreground mb-6 text-center">Use any UPI app</p>
+              <div className="w-48 h-48 rounded-2xl bg-white flex items-center justify-center mb-4 shadow-lg">
+                <QrCode className="h-32 w-32 text-foreground/20" />
+              </div>
+              <p className="text-sm text-muted-foreground">vidhyaswaroopfoundation@upi</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Support */}
+      <section className="py-20 bg-gradient-to-br from-primary to-amber-500 relative overflow-hidden">
+        <div className="absolute inset-0 pattern-dots opacity-10" />
+        <div className="container relative">
+          <div className="max-w-3xl mx-auto text-center">
+            <Sparkles className="h-12 w-12 text-white/80 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-white mb-6">Why Support Us?</h2>
+            <div className="grid sm:grid-cols-2 gap-4 text-left">
+              {benefits.map((item) => (
+                <div key={item} className="flex items-center gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur">
+                  <CheckCircle className="h-5 w-5 text-white shrink-0" />
+                  <span className="text-white">{item}</span>
+                </div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </Layout>
