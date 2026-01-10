@@ -4,6 +4,8 @@ import { Heart, ArrowRight, Sparkles, Users, BookOpen, Stethoscope, Play, Chevro
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import logo from "@/assets/logo.jpg";
+import { FloatingElements } from "@/components/illustrations/FloatingElements";
+import { AnimatedHeroIllustration } from "@/components/illustrations/AnimatedHeroIllustration";
 
 const stats = [
   { number: "3", label: "Generations", icon: Star, color: "from-amber-400 to-orange-500" },
@@ -67,6 +69,7 @@ export default function Index() {
     <Layout>
       {/* Hero Section - Unique Asymmetric Design */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] overflow-hidden bg-mesh">
+        <FloatingElements variant="mixed" />
         {/* Floating Shapes - Hidden on small mobile */}
         <div className="hidden sm:block absolute top-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-br from-primary/20 to-amber-400/20 blob animate-float blur-3xl" />
         <div className="hidden sm:block absolute bottom-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-teal/20 to-purple-400/20 blob animate-float-delayed blur-3xl" />

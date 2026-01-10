@@ -3,6 +3,8 @@ import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Mus
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AnimatedEducationIllustration } from "@/components/illustrations/AnimatedEducationIllustration";
+import { FloatingElements } from "@/components/illustrations/FloatingElements";
 
 const classes = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V"];
 
@@ -35,8 +37,12 @@ export default function Education() {
     <Layout>
       {/* Hero Section - Modern Asymmetric */}
       <section className="relative min-h-[50vh] sm:min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <FloatingElements variant="education" />
         <div className="hidden sm:block absolute top-10 right-20 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 blob animate-float blur-3xl" />
         <div className="hidden sm:block absolute bottom-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-violet-400/20 to-purple-500/20 blob animate-float-delayed blur-3xl" />
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[320px] opacity-80">
+          <AnimatedEducationIllustration />
+        </div>
         
         <div className="container px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
           <div className="max-w-4xl">
