@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Star, BookOpen, Target, CheckCircle, Users, GraduationCap, HandHeart, Quote, MapPin, Building2, Sparkles } from "lucide-react";
+import { Heart, Star, BookOpen, Target, CheckCircle, Users, GraduationCap, HandHeart, Quote, MapPin, Building2, Sparkles, Crown, Shield, Handshake } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +7,24 @@ import { Link } from "react-router-dom";
 const inspirations = [
   { name: "Late Shri Vidhya Sagar Gupta", description: "A visionary educator whose belief that 'every child deserves a chance to learn' continues to guide our mission." },
   { name: "Late Smt. Roopa Devi Gupta", description: "A pillar of strength who believed that education combined with values creates stronger communities." },
+];
+
+const leadership = {
+  presidents: [
+    { name: "Mr. Vikas Agarwal", role: "President" },
+    { name: "Mrs. Monika Agarwal", role: "President" },
+  ],
+  trustees: [
+    { name: "Shivani Agarwal", role: "Trustee" },
+    { name: "Shakshi Agarwal", role: "Trustee" },
+  ],
+};
+
+const supporters = [
+  "Bharat Vikas Parishad Annapurna",
+  "India Rising",
+  "Lions Club Supreme",
+  "State Bank of India",
 ];
 
 const purposes = [
@@ -66,6 +84,79 @@ export default function About() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{person.name}</h3>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{person.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="py-12 sm:py-20 bg-card">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10 sm:mb-14">
+            <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Leadership</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground">Our Team</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-10 max-w-4xl mx-auto">
+            {/* Presidents */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background border border-border">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg">
+                  <Crown className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">Presidents</h3>
+              </div>
+              <div className="space-y-3">
+                {leadership.presidents.map((person, i) => (
+                  <div key={person.name} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border/50">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-primary">{person.name.charAt(0)}</span>
+                    </div>
+                    <span className="text-sm sm:text-base font-medium text-foreground">{person.name}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Trustees */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background border border-border">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-lg">
+                  <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">Trustees</h3>
+              </div>
+              <div className="space-y-3">
+                {leadership.trustees.map((person, i) => (
+                  <div key={person.name} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border/50">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-accent/20 to-teal-500/20 flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-accent">{person.name.charAt(0)}</span>
+                    </div>
+                    <span className="text-sm sm:text-base font-medium text-foreground">{person.name}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporters */}
+      <section className="py-12 sm:py-20 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10 sm:mb-14">
+            <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-accent/10 text-accent text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Our Partners</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground">Valued Supporters</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
+            {supporters.map((supporter, i) => (
+              <motion.div key={supporter} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-4 sm:p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all card-hover text-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-3">
+                  <Handshake className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+                <p className="text-xs sm:text-sm font-medium text-foreground leading-tight">{supporter}</p>
               </motion.div>
             ))}
           </div>
