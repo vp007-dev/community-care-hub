@@ -3,6 +3,8 @@ import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Spro
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AnimatedHealthIllustration } from "@/components/illustrations/AnimatedHealthIllustration";
+import { FloatingElements } from "@/components/illustrations/FloatingElements";
 
 const campaigns = [
   {
@@ -71,9 +73,13 @@ export default function Health() {
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[50vh] sm:min-h-[60vh] overflow-hidden bg-mesh flex items-center">
+        <FloatingElements variant="health" />
         <div className="hidden sm:block absolute top-10 right-20 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 blob animate-float blur-3xl" />
         <div className="hidden sm:block absolute bottom-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-500/20 blob animate-float-delayed blur-3xl" />
-        
+        {/* Animated Illustration */}
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[350px] opacity-80">
+          <AnimatedHealthIllustration />
+        </div>
         <div className="container px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
           <div className="max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
