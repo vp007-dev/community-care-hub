@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Star, BookOpen, Target, CheckCircle, Users, GraduationCap, HandHeart, Quote, MapPin, Building2, Sparkles, Crown, Shield, Handshake } from "lucide-react";
+import { Heart, Star, BookOpen, Target, CheckCircle, Users, GraduationCap, HandHeart, Quote, MapPin, Building2, Sparkles, Crown, Shield, Handshake, Calendar } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -50,7 +50,11 @@ export default function About() {
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 sm:mb-6">
                 Our <span className="text-gradient">Story</span>
               </h1>
-              <p className="text-base sm:text-xl text-muted-foreground px-4">3 generations of service, transforming lives through education</p>
+              <p className="text-base sm:text-xl text-muted-foreground px-4 mb-4">3 generations of service, transforming lives through education</p>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-accent/10 border border-accent/20">
+                <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
+                <span className="text-xs sm:text-sm font-medium text-foreground">Established in 2021</span>
+              </div>
             </motion.div>
           </div>
         </div>
