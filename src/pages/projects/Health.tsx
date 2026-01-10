@@ -1,8 +1,29 @@
 import { motion } from "framer-motion";
-import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Sprout, HandHeart, Award, CheckCircle } from "lucide-react";
+import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Sprout, HandHeart, Award, CheckCircle, Syringe, SmilePlus, ShieldCheck } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
+const campaigns = [
+  {
+    icon: Stethoscope,
+    title: "Health Checkup",
+    description: "Comprehensive health screening camps providing blood pressure monitoring, blood sugar testing, BMI assessment, and general physical examination.",
+    color: "from-emerald-500 to-teal-600",
+  },
+  {
+    icon: SmilePlus,
+    title: "Dental Checkup",
+    description: "Free dental examination and awareness camps focusing on oral hygiene, cavity prevention, and basic dental care education for communities.",
+    color: "from-blue-500 to-cyan-600",
+  },
+  {
+    icon: Syringe,
+    title: "Polio Drop",
+    description: "Supporting national polio eradication initiatives by organizing polio immunization drives for children in underserved areas.",
+    color: "from-violet-500 to-purple-600",
+  },
+];
 
 const services = [
   {
@@ -80,6 +101,45 @@ export default function Health() {
                 ))}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Campaigns Section */}
+      <section className="py-16 sm:py-20 bg-card">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-14"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              Our Campaigns
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Health Initiatives</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Focused healthcare campaigns addressing critical community health needs
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {campaigns.map((campaign, i) => (
+              <motion.div
+                key={campaign.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-6 sm:p-8 rounded-3xl bg-background border border-border hover:border-primary/30 transition-all card-hover text-center"
+              >
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${campaign.color} flex items-center justify-center mb-5 sm:mb-6 shadow-lg mx-auto group-hover:scale-110 transition-transform`}>
+                  <campaign.icon className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">{campaign.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{campaign.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
