@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, ArrowRight, Sparkles, Users, BookOpen, Stethoscope, Play, ChevronRight, Star, Zap } from "lucide-react";
+import { Heart, ArrowRight, Sparkles, Users, BookOpen, Stethoscope, Play, ChevronRight, Star, Zap, Award, Trophy, Medal, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import logo from "@/assets/logo.jpg";
@@ -49,6 +49,41 @@ const galleryImages = [
   { src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop", alt: "Classroom moments" },
   { src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&h=600&fit=crop", alt: "Community support" },
   { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop", alt: "Happy children" },
+];
+
+const awards = [
+  {
+    icon: Trophy,
+    title: "Best NGO Award 2023",
+    organization: "District Administration",
+    year: "2023",
+    description: "Recognized for outstanding contribution to education in rural areas",
+    gradient: "from-amber-400 via-yellow-400 to-orange-400",
+  },
+  {
+    icon: Medal,
+    title: "Excellence in Community Service",
+    organization: "State Education Board",
+    year: "2022",
+    description: "Honored for innovative teaching methods and student welfare programs",
+    gradient: "from-slate-300 via-gray-300 to-zinc-400",
+  },
+  {
+    icon: Crown,
+    title: "Women Empowerment Champion",
+    organization: "Ministry of Social Justice",
+    year: "2024",
+    description: "Awarded for transformative women skill development initiatives",
+    gradient: "from-rose-400 via-pink-400 to-fuchsia-400",
+  },
+  {
+    icon: Award,
+    title: "Healthcare Excellence",
+    organization: "Public Health Department",
+    year: "2023",
+    description: "Appreciated for conducting impactful free health camps",
+    gradient: "from-teal-400 via-cyan-400 to-blue-400",
+  },
 ];
 
 const container = {
@@ -258,6 +293,190 @@ export default function Index() {
                 </Link>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Awards Section - Super Special Stage Display */}
+      <section className="py-20 sm:py-32 relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          {/* Radial Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] bg-gradient-radial from-amber-500/20 via-transparent to-transparent rounded-full blur-3xl" />
+          
+          {/* Floating Orbs */}
+          <motion.div 
+            animate={{ y: [0, -30, 0], rotate: [0, 180, 360] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-20 left-[10%] w-20 h-20 bg-gradient-to-br from-amber-400/30 to-yellow-500/30 rounded-full blur-2xl"
+          />
+          <motion.div 
+            animate={{ y: [0, 40, 0], rotate: [360, 180, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-20 right-[15%] w-32 h-32 bg-gradient-to-br from-rose-400/20 to-pink-500/20 rounded-full blur-2xl"
+          />
+          <motion.div 
+            animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/3 right-[20%] w-16 h-16 bg-gradient-to-br from-teal-400/25 to-cyan-500/25 rounded-full blur-xl"
+          />
+          
+          {/* Sparkle Stars */}
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0.5, 1.5, 0.5],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 3,
+              }}
+            />
+          ))}
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
+
+        <div className="container px-4 sm:px-6 lg:px-8 relative">
+          {/* Section Header - Grand Display */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12 sm:mb-20"
+          >
+            {/* Decorative Crown Icon */}
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, type: "spring" }}
+              className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 sm:mb-8 relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl sm:rounded-3xl rotate-6 opacity-50 blur-sm" />
+              <div className="relative w-full h-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl shadow-amber-500/50">
+                <Trophy className="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-lg" />
+              </div>
+              {/* Sparkle Effects */}
+              <motion.div
+                animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute -top-2 -right-2 w-4 h-4 bg-white rounded-full blur-sm"
+              />
+              <motion.div
+                animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                className="absolute -bottom-1 -left-1 w-3 h-3 bg-amber-300 rounded-full blur-sm"
+              />
+            </motion.div>
+
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="inline-block px-4 sm:px-6 py-2 rounded-full bg-gradient-to-r from-amber-400/20 to-yellow-400/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-6"
+            >
+              ✨ Recognition & Honors ✨
+            </motion.span>
+
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
+              <span className="text-white">Our </span>
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-400 bg-clip-text text-transparent animate-pulse">
+                Awards
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto">
+              Recognized for our unwavering commitment to transforming lives
+            </p>
+          </motion.div>
+
+          {/* Awards Grid - Premium Cards */}
+          <motion.div 
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {awards.map((award, i) => (
+              <motion.div
+                key={award.title}
+                variants={item}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group relative"
+              >
+                {/* Card Glow Effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${award.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`} />
+                
+                <div className="relative h-full p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 group-hover:border-white/30 transition-all duration-500 overflow-hidden">
+                  {/* Top Shine Effect */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  {/* Year Badge */}
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white/80">
+                    {award.year}
+                  </div>
+
+                  {/* Icon with Gradient Background */}
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="relative mb-5 sm:mb-6"
+                  >
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${award.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow`}>
+                      <award.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white drop-shadow-md" />
+                    </div>
+                    {/* Icon Reflection */}
+                    <div className={`absolute -bottom-2 left-2 right-2 h-4 bg-gradient-to-br ${award.gradient} rounded-full blur-md opacity-40`} />
+                  </motion.div>
+
+                  {/* Content */}
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-amber-200 transition-colors line-clamp-2">
+                    {award.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/50 font-medium mb-3">
+                    {award.organization}
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    {award.description}
+                  </p>
+
+                  {/* Bottom Decoration */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${award.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Bottom Decorative Element */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="flex justify-center mt-12 sm:mt-16"
+          >
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10">
+              <div className="flex -space-x-2">
+                {[Trophy, Medal, Award].map((Icon, i) => (
+                  <div key={i} className={`w-8 h-8 rounded-full bg-gradient-to-br ${awards[i]?.gradient || 'from-amber-400 to-orange-400'} flex items-center justify-center border-2 border-slate-900`}>
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                ))}
+              </div>
+              <span className="text-white/70 text-sm font-medium">And many more recognitions...</span>
+            </div>
           </motion.div>
         </div>
       </section>
