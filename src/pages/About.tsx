@@ -11,20 +11,20 @@ const inspirations = [
 
 const leadership = {
   presidents: [
-    { name: "Mr. Vikas Agarwal", role: "President" },
-    { name: "Mrs. Monika Agarwal", role: "President" },
+    { name: "Mr. Vikas Agarwal", role: "President", image: "", description: "Visionary leader dedicated to transforming education accessibility. Passionate about creating sustainable impact through community-driven initiatives." },
+    { name: "Mrs. Monika Agarwal", role: "President", image: "", description: "Champion of women empowerment and education. Leads with compassion and commitment to nurturing young minds." },
   ],
   trustees: [
-    { name: "Shivani Agarwal", role: "Trustee" },
-    { name: "Shakshi Agarwal", role: "Trustee" },
+    { name: "Shivani Agarwal", role: "Trustee", image: "", description: "Dedicated to operational excellence and program development. Ensures every initiative reaches those who need it most." },
+    { name: "Shakshi Agarwal", role: "Trustee", image: "", description: "Focused on youth engagement and skill development. Bridges the gap between traditional values and modern education." },
   ],
 };
 
 const supporters = [
-  "Bharat Vikas Parishad Annapurna",
-  "India Rising",
-  "Lions Club Supreme",
-  "State Bank of India",
+  { name: "Bharat Vikas Parishad Annapurna", image: "", description: "A leading organization dedicated to national development through education, health, and social service initiatives across India." },
+  { name: "India Rising", image: "", description: "Empowering communities through sustainable development programs, skill training, and grassroots social transformation." },
+  { name: "Lions Club Supreme", image: "", description: "International humanitarian organization serving communities through vision care, hunger relief, and youth programs." },
+  { name: "State Bank of India", image: "", description: "India's largest public sector bank, supporting educational initiatives and financial literacy programs nationwide." },
 ];
 
 const purposes = [
@@ -102,46 +102,42 @@ export default function About() {
             <h2 className="text-2xl sm:text-4xl font-bold text-foreground">Our Team</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-10 max-w-4xl mx-auto">
-            {/* Presidents */}
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background border border-border">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg">
-                  <Crown className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            {[...leadership.presidents, ...leadership.trustees].map((person, i) => (
+              <motion.div 
+                key={person.name} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: i * 0.1 }}
+                className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-background border border-border hover:border-primary/30 transition-all card-hover text-center"
+              >
+                {/* Circular Image Placeholder */}
+                <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 border-4 border-primary/30 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+                  {person.image ? (
+                    <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-2xl sm:text-3xl font-bold text-primary">{person.name.split(' ').map(n => n[0]).join('')}</span>
+                  )}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground">Presidents</h3>
-              </div>
-              <div className="space-y-3">
-                {leadership.presidents.map((person, i) => (
-                  <div key={person.name} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border/50">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary/20 to-amber-500/20 flex items-center justify-center">
-                      <span className="text-sm sm:text-base font-bold text-primary">{person.name.charAt(0)}</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium text-foreground">{person.name}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Trustees */}
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background border border-border">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-lg">
-                  <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                
+                {/* Role Badge */}
+                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
+                  person.role === 'President' 
+                    ? 'bg-amber-500/10 text-amber-600' 
+                    : 'bg-teal-500/10 text-teal-600'
+                }`}>
+                  {person.role === 'President' ? <Crown className="h-3 w-3" /> : <Shield className="h-3 w-3" />}
+                  {person.role}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground">Trustees</h3>
-              </div>
-              <div className="space-y-3">
-                {leadership.trustees.map((person, i) => (
-                  <div key={person.name} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border/50">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-accent/20 to-teal-500/20 flex items-center justify-center">
-                      <span className="text-sm sm:text-base font-bold text-accent">{person.name.charAt(0)}</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium text-foreground">{person.name}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+                
+                {/* Name */}
+                <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{person.name}</h3>
+                
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">{person.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -154,13 +150,30 @@ export default function About() {
             <h2 className="text-2xl sm:text-4xl font-bold text-foreground">Valued Supporters</h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {supporters.map((supporter, i) => (
-              <motion.div key={supporter} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-4 sm:p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all card-hover text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-3">
-                  <Handshake className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+              <motion.div 
+                key={supporter.name} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: i * 0.1 }} 
+                className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-primary/30 transition-all card-hover text-center"
+              >
+                {/* Circular Logo Placeholder */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-br from-accent/20 to-primary/20 border-4 border-accent/30 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+                  {supporter.image ? (
+                    <img src={supporter.image} alt={supporter.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <Handshake className="h-7 w-7 sm:h-9 sm:w-9 text-accent" />
+                  )}
                 </div>
-                <p className="text-xs sm:text-sm font-medium text-foreground leading-tight">{supporter}</p>
+                
+                {/* Name */}
+                <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">{supporter.name}</h3>
+                
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">{supporter.description}</p>
               </motion.div>
             ))}
           </div>
