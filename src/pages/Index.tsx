@@ -6,6 +6,7 @@ import { Layout } from "@/components/layout/Layout";
 import logo from "@/assets/logo.jpg";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
 import { AnimatedHeroIllustration } from "@/components/illustrations/AnimatedHeroIllustration";
+import { GalleryGrid } from "@/components/GalleryLightbox";
 
 const stats = [
   { number: "3", label: "Generations", icon: Star, color: "from-amber-400 to-orange-500" },
@@ -45,10 +46,35 @@ const programs = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&h=600&fit=crop", alt: "Education in action" },
-  { src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop", alt: "Classroom moments" },
-  { src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&h=600&fit=crop", alt: "Community support" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop", alt: "Happy children" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.08%20PM.jpeg", alt: "Community event" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM.jpeg", alt: "Education program" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM%20(1).jpeg", alt: "Student activities" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM.jpeg", alt: "Learning moments" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM%20(1).jpeg", alt: "Classroom session" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.12%20PM.jpeg", alt: "Community gathering" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.13%20PM.jpeg", alt: "Foundation event" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM.jpeg", alt: "Health camp" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM%20(1).jpeg", alt: "Volunteer work" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.15%20PM.jpeg", alt: "Student celebration" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.16%20PM.jpeg", alt: "Team activity" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM.jpeg", alt: "Award ceremony" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM%20(1).jpeg", alt: "Special event" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM.jpeg", alt: "Cultural program" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM%20(1).jpeg", alt: "Community support" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.19%20PM.jpeg", alt: "Women empowerment" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM.jpeg", alt: "Training session" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM%20(1).jpeg", alt: "Skill development" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.21%20PM.jpeg", alt: "Group photo" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM.jpeg", alt: "Celebration moment" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM%20(1).jpeg", alt: "Achievement day" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM.jpeg", alt: "Foundation milestone" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(1).jpeg", alt: "Impact moment" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(2).jpeg", alt: "Success story" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM.jpeg", alt: "Team work" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM%20(1).jpeg", alt: "Community service" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM.jpeg", alt: "Education impact" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM%20(1).jpeg", alt: "Health initiative" },
+  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.26%20PM.jpeg", alt: "Foundation journey" },
 ];
 
 const awards = [
@@ -548,33 +574,7 @@ export default function Index() {
             </Button>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
-          {galleryImages.map((image, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`relative rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer ${
-                  i === 0 ? 'col-span-2 row-span-2' : ''
-                }`}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className={`w-full object-cover group-hover:scale-110 transition-transform duration-700 ${
-                    i === 0 ? 'h-48 sm:h-64 md:h-full' : 'h-32 sm:h-48 md:h-64'
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
-                    <p className="text-white font-medium text-sm sm:text-base">{image.alt}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <GalleryGrid images={galleryImages} displayCount={5} />
         </div>
       </section>
 
