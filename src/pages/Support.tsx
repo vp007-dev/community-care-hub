@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Building2, QrCode, Award, CreditCard, Users, HandHeart, Banknote, CheckCircle, Sparkles } from "lucide-react";
+import { Heart, Building2, QrCode, Award, CreditCard, Users, HandHeart, Banknote, CheckCircle, Sparkles, Handshake } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -11,6 +11,13 @@ const impactStats = [
   { number: "4867+", label: "Items Donated", icon: HandHeart, color: "from-rose-500 to-pink-600" },
   { number: "3", label: "Generations", icon: Heart, color: "from-amber-500 to-orange-600" },
   { number: "₹Chips", label: "Education Cost", icon: Banknote, color: "from-emerald-500 to-teal-600" },
+];
+
+const valuedSupporters = [
+  { name: "Bharat Vikas Parishad Annapurna", image: "", description: "A leading organization dedicated to national development through education, health, and social service initiatives across India." },
+  { name: "India Rising", image: "", description: "Empowering communities through sustainable development programs, skill training, and grassroots social transformation." },
+  { name: "Lions Club Supreme", image: "", description: "International humanitarian organization serving communities through vision care, hunger relief, and youth programs." },
+  { name: "State Bank of India", image: "", description: "India's largest public sector bank, supporting educational initiatives and financial literacy programs nationwide." },
 ];
 
 const benefits = [
@@ -103,6 +110,45 @@ export default function Support() {
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground">vidhyaswaroopfoundation@upi</p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Valued Supporters */}
+      <section className="py-12 sm:py-20 bg-card">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10 sm:mb-14">
+            <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-accent/10 text-accent text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Our Partners</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground">Valued Supporters</h2>
+            <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl mx-auto">Organizations that believe in our mission and help us create lasting impact</p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            {valuedSupporters.map((supporter, i) => (
+              <motion.div 
+                key={supporter.name} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: i * 0.1 }} 
+                className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-background border border-border hover:border-primary/30 transition-all card-hover text-center"
+              >
+                {/* Circular Logo Placeholder */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-br from-accent/20 to-primary/20 border-4 border-accent/30 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+                  {supporter.image ? (
+                    <img src={supporter.image} alt={supporter.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <Handshake className="h-7 w-7 sm:h-9 sm:w-9 text-accent" />
+                  )}
+                </div>
+                
+                {/* Name */}
+                <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">{supporter.name}</h3>
+                
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">{supporter.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
