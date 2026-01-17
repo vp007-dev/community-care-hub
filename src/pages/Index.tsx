@@ -22,6 +22,35 @@ import logo from "@/assets/logo.jpg";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
 import { AnimatedHeroIllustration } from "@/components/illustrations/AnimatedHeroIllustration";
 import { GalleryGrid } from "@/components/GalleryLightbox";
+import { SlidingBanner } from "@/components/SlidingBanner";
+
+// Banner slides - add your images here
+const bannerSlides = [
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.08%20PM.jpeg",
+    alt: "Community Care",
+    title: "Vidhya Swaroop Foundation",
+    subtitle: "Transforming Lives Through Education & Care",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM.jpeg",
+    alt: "Education Program",
+    title: "Quality Education for All",
+    subtitle: "Building brighter futures one student at a time",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM.jpeg",
+    alt: "Health Initiative",
+    title: "Healthcare Outreach",
+    subtitle: "Free health camps for underprivileged communities",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.19%20PM.jpeg",
+    alt: "Women Empowerment",
+    title: "Women Skill Development",
+    subtitle: "Empowering women through skill training",
+  },
+];
 
 const stats = [
   { number: "3", label: "Generations", icon: Star, color: "from-amber-400 to-orange-500" },
@@ -230,40 +259,8 @@ const item = {
 export default function Index() {
   return (
     <Layout>
-      {/* Banner Section - Add your image here */}
-      <section className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden">
-        {/* Placeholder for banner image - Replace the src with your image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-amber-500/80">
-          <img
-            src=""
-            alt="Banner"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-          {/* Overlay Content */}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-primary/70 via-primary/50 to-amber-500/70">
-            <div className="text-center text-white px-4">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
-              >
-                Vidhya Swaroop Foundation
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg sm:text-xl md:text-2xl opacity-90"
-              >
-                Transforming Lives Through Education & Care
-              </motion.p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Sliding Banner Section */}
+      <SlidingBanner slides={bannerSlides} autoPlayInterval={4000} />
 
       {/* Hero Section - Unique Asymmetric Design */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] overflow-hidden bg-mesh">
