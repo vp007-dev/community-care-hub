@@ -3,6 +3,7 @@ import { Heart, Building2, QrCode, Award, CreditCard, Users, HandHeart, Banknote
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { MarqueeSupporters } from "@/components/MarqueeSupporters";
 
 const donationAmounts = [500, 1000, 2500, 5000, 10000, 25000];
 
@@ -26,6 +27,21 @@ const benefits = [
   "Skill development for adults",
   "Health check-up camps",
   "Annual donation drives",
+];
+
+const constantSupporters = [
+  { name: "Rajesh Kumar" },
+  { name: "Priya Sharma" },
+  { name: "Amit Patel" },
+  { name: "Sunita Gupta" },
+  { name: "Vikram Singh" },
+  { name: "Neha Verma" },
+  { name: "Rohit Agarwal" },
+  { name: "Kavita Joshi" },
+  { name: "Suresh Reddy" },
+  { name: "Meera Nair" },
+  { name: "Ankit Mishra" },
+  { name: "Pooja Saxena" },
 ];
 
 export default function Support() {
@@ -151,6 +167,27 @@ export default function Support() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Constant Supporters - Marquee Strip */}
+      <section className="py-8 sm:py-12 bg-card border-t border-border overflow-hidden">
+        <div className="container px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-semibold mb-2">
+              Our Champions
+            </span>
+            <h2 className="text-xl sm:text-3xl font-bold text-foreground">Constant Supporters</h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+              Individuals who consistently contribute to our mission
+            </p>
+          </motion.div>
+        </div>
+        <MarqueeSupporters supporters={constantSupporters} speed={35} />
       </section>
 
       {/* Why Support */}
