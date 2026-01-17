@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Users, Heart, Monitor, Scissors, Smartphone, Music, Palette, Target, CheckCircle, Sparkles, Briefcase } from "lucide-react";
+import { Users, Heart, Monitor, Scissors, Smartphone, Music, Palette, Target, CheckCircle, Sparkles, Briefcase, Camera } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedWomanIllustration } from "@/components/illustrations/AnimatedWomanIllustration";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
+import { GalleryGrid } from "@/components/GalleryLightbox";
 
 const programs = [
   {
@@ -60,6 +61,19 @@ const empowermentPillars = [
 const outcomes = [
   "Confident decision-makers",
   "Skilled professionals",
+  "Role models for families",
+  "Active contributors to society",
+];
+
+// Placeholder gallery images - replace with actual empowerment program images
+const empowermentGallery = [
+  { src: "", alt: "Women empowerment photo 1" },
+  { src: "", alt: "Women empowerment photo 2" },
+  { src: "", alt: "Women empowerment photo 3" },
+  { src: "", alt: "Women empowerment photo 4" },
+  { src: "", alt: "Women empowerment photo 5" },
+  { src: "", alt: "Women empowerment photo 6" },
+];
   "Role models for families",
   "Active contributors to society",
 ];
@@ -215,6 +229,28 @@ export default function WomenEmpowerment() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-rose-500/10 text-rose-600 text-sm font-semibold mb-4">
+              <Camera className="inline h-4 w-4 mr-2" />
+              Gallery
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Empowerment in Action</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Women learning, growing, and achieving independence
+            </p>
+          </motion.div>
+          <GalleryGrid images={empowermentGallery} displayCount={6} />
         </div>
       </section>
 

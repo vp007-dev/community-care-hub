@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Music, Baby, Calculator, Globe, PenTool, ArrowRight, Sparkles } from "lucide-react";
+import { GraduationCap, BookOpen, Users, Award, CheckCircle, Heart, Palette, Music, Baby, Calculator, Globe, PenTool, ArrowRight, Sparkles, Camera } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedEducationIllustration } from "@/components/illustrations/AnimatedEducationIllustration";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
+import { GalleryGrid } from "@/components/GalleryLightbox";
 
 const classes = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V"];
 
@@ -26,6 +27,21 @@ const additionalAreas = [
 const teachingMethods = [
   "Storytelling & role-play",
   "Visual aids & charts",
+  "Hands-on activities",
+  "Group discussions",
+  "Games-based learning",
+  "Regular practice",
+];
+
+// Placeholder gallery images - replace with actual education program images
+const educationGallery = [
+  { src: "", alt: "Education program photo 1" },
+  { src: "", alt: "Education program photo 2" },
+  { src: "", alt: "Education program photo 3" },
+  { src: "", alt: "Education program photo 4" },
+  { src: "", alt: "Education program photo 5" },
+  { src: "", alt: "Education program photo 6" },
+];
   "Hands-on activities",
   "Group discussions",
   "Games-based learning",
@@ -194,6 +210,28 @@ export default function Education() {
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 text-sm font-semibold mb-4">
+              <Camera className="inline h-4 w-4 mr-2" />
+              Gallery
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Education in Action</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Glimpses from our classrooms and learning activities
+            </p>
+          </motion.div>
+          <GalleryGrid images={educationGallery} displayCount={6} />
         </div>
       </section>
 

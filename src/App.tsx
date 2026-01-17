@@ -10,6 +10,7 @@ import Support from "./pages/Support";
 import Education from "./pages/projects/Education";
 import Health from "./pages/projects/Health";
 import WomenEmpowerment from "./pages/projects/WomenEmpowerment";
+import Campaigns from "./pages/Campaigns";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/projects/education" element={<Education />} />
           <Route path="/projects/health" element={<Health />} />
           <Route path="/projects/women-empowerment" element={<WomenEmpowerment />} />
+          <Route path="/campaigns" element={<Campaigns />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
