@@ -42,11 +42,6 @@ const educationGallery = [
   { src: "", alt: "Education program photo 5" },
   { src: "", alt: "Education program photo 6" },
 ];
-  "Hands-on activities",
-  "Group discussions",
-  "Games-based learning",
-  "Regular practice",
-];
 
 export default function Education() {
   return (

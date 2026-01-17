@@ -74,9 +74,6 @@ const empowermentGallery = [
   { src: "", alt: "Women empowerment photo 5" },
   { src: "", alt: "Women empowerment photo 6" },
 ];
-  "Role models for families",
-  "Active contributors to society",
-];
 
 export default function WomenEmpowerment() {
   return (
