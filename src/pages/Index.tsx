@@ -230,6 +230,41 @@ const item = {
 export default function Index() {
   return (
     <Layout>
+      {/* Banner Section - Add your image here */}
+      <section className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden">
+        {/* Placeholder for banner image - Replace the src with your image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-amber-500/80">
+          <img
+            src=""
+            alt="Banner"
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+          {/* Overlay Content */}
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-primary/70 via-primary/50 to-amber-500/70">
+            <div className="text-center text-white px-4">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              >
+                Vidhya Swaroop Foundation
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-lg sm:text-xl md:text-2xl opacity-90"
+              >
+                Transforming Lives Through Education & Care
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section - Unique Asymmetric Design */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] overflow-hidden bg-mesh">
         <FloatingElements variant="mixed" />

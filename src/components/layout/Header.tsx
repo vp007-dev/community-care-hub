@@ -16,6 +16,7 @@ const navigation = [
       { name: "Women Empowerment", href: "/projects/women-empowerment", emoji: "✨" },
     ],
   },
+  { name: "Campaigns", href: "/campaigns" },
   { name: "About", href: "/about" },
   { name: "Support", href: "/support" },
   { name: "Contact", href: "/contact" },

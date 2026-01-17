@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Sprout, HandHeart, Award, CheckCircle, Syringe, SmilePlus, ShieldCheck } from "lucide-react";
+import { Stethoscope, Heart, Target, Activity, Pill, BookOpen, Users, Home, Sprout, HandHeart, Award, CheckCircle, Syringe, SmilePlus, ShieldCheck, Camera } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedHealthIllustration } from "@/components/illustrations/AnimatedHealthIllustration";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
+import { GalleryGrid } from "@/components/GalleryLightbox";
 
 const campaigns = [
   {
@@ -64,6 +65,19 @@ const beneficiaries = [
 const impacts = [
   { number: "500+", label: "People Served" },
   { number: "10+", label: "Health Camps" },
+  { number: "100%", label: "Free Service" },
+  { number: "50+", label: "Volunteers" },
+];
+
+// Placeholder gallery images - replace with actual health camp images
+const healthGallery = [
+  { src: "", alt: "Health camp photo 1" },
+  { src: "", alt: "Health camp photo 2" },
+  { src: "", alt: "Health camp photo 3" },
+  { src: "", alt: "Health camp photo 4" },
+  { src: "", alt: "Health camp photo 5" },
+  { src: "", alt: "Health camp photo 6" },
+];
   { number: "100%", label: "Free Service" },
   { number: "50+", label: "Volunteers" },
 ];
@@ -253,6 +267,28 @@ export default function Health() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 sm:py-20 bg-card">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 text-sm font-semibold mb-4">
+              <Camera className="inline h-4 w-4 mr-2" />
+              Gallery
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Healthcare in Action</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Moments from our health camps and medical outreach
+            </p>
+          </motion.div>
+          <GalleryGrid images={healthGallery} displayCount={6} />
         </div>
       </section>
 
