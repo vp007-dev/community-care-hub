@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, ArrowRight, Sparkles, Users, BookOpen, Stethoscope, Play, ChevronRight, Star, Zap, Award, Trophy, Medal, Crown } from "lucide-react";
+import {
+  Heart,
+  ArrowRight,
+  Sparkles,
+  Users,
+  BookOpen,
+  Stethoscope,
+  Play,
+  ChevronRight,
+  Star,
+  Zap,
+  Award,
+  Trophy,
+  Medal,
+  Crown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import logo from "@/assets/logo.jpg";
@@ -10,7 +25,7 @@ import { GalleryGrid } from "@/components/GalleryLightbox";
 
 const stats = [
   { number: "3", label: "Generations", icon: Star, color: "from-amber-400 to-orange-500" },
-  { number: "1000+", label: "Students Taught", icon: Users, color: "from-teal-400 to-emerald-500" },
+  { number: "100+", label: "Students Taught", icon: Users, color: "from-teal-400 to-emerald-500" },
   { number: "4867+", label: "Items Donated", icon: Heart, color: "from-pink-400 to-rose-500" },
   { number: "₹0", label: "Cost Barrier", icon: Zap, color: "from-violet-400 to-purple-500" },
 ];
@@ -35,7 +50,7 @@ const programs = [
     bgGradient: "from-emerald-50 to-teal-50",
   },
   {
-    title: "Women Empowerment",
+    title: "Women Skill Development",
     subtitle: "Skills & Independence",
     description: "Tailoring, computers, digital marketing, and arts training for financial independence.",
     link: "/projects/women-empowerment",
@@ -46,35 +61,122 @@ const programs = [
 ];
 
 const galleryImages = [
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.08%20PM.jpeg", alt: "Community event" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM.jpeg", alt: "Education program" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM%20(1).jpeg", alt: "Student activities" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM.jpeg", alt: "Learning moments" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM%20(1).jpeg", alt: "Classroom session" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.12%20PM.jpeg", alt: "Community gathering" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.13%20PM.jpeg", alt: "Foundation event" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM.jpeg", alt: "Health camp" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM%20(1).jpeg", alt: "Volunteer work" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.15%20PM.jpeg", alt: "Student celebration" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.16%20PM.jpeg", alt: "Team activity" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM.jpeg", alt: "Award ceremony" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM%20(1).jpeg", alt: "Special event" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM.jpeg", alt: "Cultural program" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM%20(1).jpeg", alt: "Community support" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.19%20PM.jpeg", alt: "Women empowerment" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM.jpeg", alt: "Training session" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM%20(1).jpeg", alt: "Skill development" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.21%20PM.jpeg", alt: "Group photo" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM.jpeg", alt: "Celebration moment" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM%20(1).jpeg", alt: "Achievement day" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM.jpeg", alt: "Foundation milestone" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(1).jpeg", alt: "Impact moment" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(2).jpeg", alt: "Success story" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM.jpeg", alt: "Team work" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM%20(1).jpeg", alt: "Community service" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM.jpeg", alt: "Education impact" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM%20(1).jpeg", alt: "Health initiative" },
-  { src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.26%20PM.jpeg", alt: "Foundation journey" },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.08%20PM.jpeg",
+    alt: "Community event",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM.jpeg",
+    alt: "Education program",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.10%20PM%20(1).jpeg",
+    alt: "Student activities",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM.jpeg",
+    alt: "Learning moments",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.11%20PM%20(1).jpeg",
+    alt: "Classroom session",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.12%20PM.jpeg",
+    alt: "Community gathering",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.13%20PM.jpeg",
+    alt: "Foundation event",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM.jpeg",
+    alt: "Health camp",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.14%20PM%20(1).jpeg",
+    alt: "Volunteer work",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.15%20PM.jpeg",
+    alt: "Student celebration",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.16%20PM.jpeg",
+    alt: "Team activity",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM.jpeg",
+    alt: "Award ceremony",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.17%20PM%20(1).jpeg",
+    alt: "Special event",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM.jpeg",
+    alt: "Cultural program",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.18%20PM%20(1).jpeg",
+    alt: "Community support",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.19%20PM.jpeg",
+    alt: "Women empowerment",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM.jpeg",
+    alt: "Training session",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.20%20PM%20(1).jpeg",
+    alt: "Skill development",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.21%20PM.jpeg",
+    alt: "Group photo",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM.jpeg",
+    alt: "Celebration moment",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.22%20PM%20(1).jpeg",
+    alt: "Achievement day",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM.jpeg",
+    alt: "Foundation milestone",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(1).jpeg",
+    alt: "Impact moment",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.23%20PM%20(2).jpeg",
+    alt: "Success story",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM.jpeg",
+    alt: "Team work",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.24%20PM%20(1).jpeg",
+    alt: "Community service",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM.jpeg",
+    alt: "Education impact",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.25%20PM%20(1).jpeg",
+    alt: "Health initiative",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/WhatsApp%20Image%202026-01-14%20at%204.37.26%20PM.jpeg",
+    alt: "Foundation journey",
+  },
 ];
 
 const awards = [
@@ -116,13 +218,13 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 export default function Index() {
@@ -134,11 +236,11 @@ export default function Index() {
         {/* Floating Shapes - Hidden on small mobile */}
         <div className="hidden sm:block absolute top-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-br from-primary/20 to-amber-400/20 blob animate-float blur-3xl" />
         <div className="hidden sm:block absolute bottom-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-teal/20 to-purple-400/20 blob animate-float-delayed blur-3xl" />
-        
+
         <div className="container px-4 sm:px-6 lg:px-8 relative pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-32">
           <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             {/* Left Content */}
-            <motion.div 
+            <motion.div
               className="lg:col-span-7"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -153,23 +255,31 @@ export default function Index() {
               </div>
 
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-4 sm:mb-6">
-                Education at the{" "}
-                <span className="text-gradient">Cost of Chips</span>
+                Education at the <span className="text-gradient">Cost of Chips Packet</span>
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-xl leading-relaxed">
-                We're transforming lives by making quality education accessible to everyone. 
-                Join our mission to empower communities through knowledge.
+                We're transforming lives by making quality education accessible to everyone. Join our mission to empower
+                communities through knowledge.
               </p>
 
               <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-10">
-                <Button asChild size="lg" className="rounded-full px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base shine shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base shine shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all"
+                >
                   <Link to="/support">
                     <Heart className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                     Donate Now
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base group border-2">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base group border-2"
+                >
                   <Link to="/about">
                     Our Story
                     <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -180,9 +290,12 @@ export default function Index() {
               {/* Mini Stats - Hidden on mobile */}
               <div className="hidden sm:flex items-center gap-6 text-sm mt-8 sm:mt-10">
                 <div className="flex -space-x-3">
-                  {[1,2,3,4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-amber-400 border-2 border-background flex items-center justify-center text-white text-xs font-bold">
-                      {i === 4 ? '+' : '★'}
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-amber-400 border-2 border-background flex items-center justify-center text-white text-xs font-bold"
+                    >
+                      {i === 4 ? "+" : "★"}
                     </div>
                   ))}
                 </div>
@@ -194,7 +307,7 @@ export default function Index() {
             </motion.div>
 
             {/* Right - Bento Grid */}
-            <motion.div 
+            <motion.div
               className="lg:col-span-5 mt-8 lg:mt-0"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -204,10 +317,14 @@ export default function Index() {
                 {/* Logo Card */}
                 <div className="col-span-2 p-4 sm:p-6 rounded-2xl sm:rounded-3xl glass-strong border border-border/50 shadow-xl">
                   <div className="flex items-center gap-3 sm:gap-4">
-                    <img src={logo} alt="VSF" className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl object-cover shadow-lg" />
+                    <img
+                      src={logo}
+                      alt="VSF"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl object-cover shadow-lg"
+                    />
                     <div>
                       <h3 className="font-bold text-base sm:text-lg text-foreground">Vidhya Swaroop</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground">विद्या स्वरूप फाउंडेशन</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">An Educational NGO</p>
                     </div>
                   </div>
                 </div>
@@ -221,7 +338,9 @@ export default function Index() {
                     transition={{ delay: 0.4 + i * 0.1 }}
                     className="p-3 sm:p-5 rounded-xl sm:rounded-2xl glass border border-border/50 group hover:border-primary/30 transition-colors"
                   >
-                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 transition-transform`}
+                    >
                       <stat.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                     <div className="text-xl sm:text-2xl font-bold text-foreground">{stat.number}</div>
@@ -231,9 +350,9 @@ export default function Index() {
 
                 {/* Video/Play Card */}
                 <div className="col-span-2 relative overflow-hidden rounded-3xl aspect-video group cursor-pointer">
-                  <img 
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop" 
-                    alt="Our Impact" 
+                  <img
+                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop"
+                    alt="Our Impact"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -255,7 +374,10 @@ export default function Index() {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 105C120 90 240 60 360 50C480 40 600 50 720 55C840 60 960 60 1080 50C1200 40 1320 20 1380 10L1440 0V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--card))"/>
+            <path
+              d="M0 120L60 105C120 90 240 60 360 50C480 40 600 50 720 55C840 60 960 60 1080 50C1200 40 1320 20 1380 10L1440 0V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+              fill="hsl(var(--card))"
+            />
           </svg>
         </div>
       </section>
@@ -272,15 +394,13 @@ export default function Index() {
             <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-accent/10 text-accent text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
               What We Do
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-              Our Programs
-            </h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">Our Programs</h2>
             <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Comprehensive initiatives designed to uplift and empower communities
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6"
             variants={container}
             initial="hidden"
@@ -294,10 +414,14 @@ export default function Index() {
                   className={`group relative block h-full p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${program.bgGradient} border border-border/50 overflow-hidden card-hover`}
                 >
                   {/* Background Gradient Orb */}
-                  <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${program.gradient} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity`} />
-                  
+                  <div
+                    className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${program.gradient} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity`}
+                  />
+
                   <div className="relative">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${program.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${program.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform`}
+                    >
                       <program.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                     </div>
 
@@ -329,24 +453,24 @@ export default function Index() {
         <div className="absolute inset-0">
           {/* Radial Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] bg-gradient-radial from-amber-500/20 via-transparent to-transparent rounded-full blur-3xl" />
-          
+
           {/* Floating Orbs */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, -30, 0], rotate: [0, 180, 360] }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             className="absolute top-20 left-[10%] w-20 h-20 bg-gradient-to-br from-amber-400/30 to-yellow-500/30 rounded-full blur-2xl"
           />
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 40, 0], rotate: [360, 180, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute bottom-20 right-[15%] w-32 h-32 bg-gradient-to-br from-rose-400/20 to-pink-500/20 rounded-full blur-2xl"
           />
-          <motion.div 
+          <motion.div
             animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
             className="absolute top-1/3 right-[20%] w-16 h-16 bg-gradient-to-br from-teal-400/25 to-cyan-500/25 rounded-full blur-xl"
           />
-          
+
           {/* Sparkle Stars */}
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -367,9 +491,15 @@ export default function Index() {
               }}
             />
           ))}
-          
+
           {/* Grid Pattern */}
-          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
 
         <div className="container px-4 sm:px-6 lg:px-8 relative">
@@ -428,7 +558,7 @@ export default function Index() {
           </motion.div>
 
           {/* Awards Grid - Premium Cards */}
-          <motion.div 
+          <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
             variants={container}
             initial="hidden"
@@ -443,12 +573,14 @@ export default function Index() {
                 className="group relative"
               >
                 {/* Card Glow Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${award.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${award.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`}
+                />
+
                 <div className="relative h-full p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 group-hover:border-white/30 transition-all duration-500 overflow-hidden">
                   {/* Top Shine Effect */}
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
+
                   {/* Year Badge */}
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white/80">
                     {award.year}
@@ -460,26 +592,28 @@ export default function Index() {
                     transition={{ duration: 0.5 }}
                     className="relative mb-5 sm:mb-6"
                   >
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${award.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow`}>
+                    <div
+                      className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${award.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow`}
+                    >
                       <award.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white drop-shadow-md" />
                     </div>
                     {/* Icon Reflection */}
-                    <div className={`absolute -bottom-2 left-2 right-2 h-4 bg-gradient-to-br ${award.gradient} rounded-full blur-md opacity-40`} />
+                    <div
+                      className={`absolute -bottom-2 left-2 right-2 h-4 bg-gradient-to-br ${award.gradient} rounded-full blur-md opacity-40`}
+                    />
                   </motion.div>
 
                   {/* Content */}
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-amber-200 transition-colors line-clamp-2">
                     {award.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-white/50 font-medium mb-3">
-                    {award.organization}
-                  </p>
-                  <p className="text-sm text-white/70 leading-relaxed">
-                    {award.description}
-                  </p>
+                  <p className="text-xs sm:text-sm text-white/50 font-medium mb-3">{award.organization}</p>
+                  <p className="text-sm text-white/70 leading-relaxed">{award.description}</p>
 
                   {/* Bottom Decoration */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${award.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${award.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  />
                 </div>
               </motion.div>
             ))}
@@ -496,7 +630,10 @@ export default function Index() {
             <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10">
               <div className="flex -space-x-2">
                 {[Trophy, Medal, Award].map((Icon, i) => (
-                  <div key={i} className={`w-8 h-8 rounded-full bg-gradient-to-br ${awards[i]?.gradient || 'from-amber-400 to-orange-400'} flex items-center justify-center border-2 border-slate-900`}>
+                  <div
+                    key={i}
+                    className={`w-8 h-8 rounded-full bg-gradient-to-br ${awards[i]?.gradient || "from-amber-400 to-orange-400"} flex items-center justify-center border-2 border-slate-900`}
+                  >
                     <Icon className="w-4 h-4 text-white" />
                   </div>
                 ))}
@@ -512,7 +649,7 @@ export default function Index() {
         <div className="absolute inset-0 pattern-dots opacity-10" />
         <div className="hidden sm:block absolute top-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary/30 rounded-full blur-3xl" />
         <div className="hidden sm:block absolute bottom-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-teal/20 rounded-full blur-3xl" />
-        
+
         <div className="container px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -538,7 +675,9 @@ export default function Index() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
               >
-                <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}>
+                <div
+                  className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}
+                >
                   <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
                 <div className="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">{stat.number}</div>
@@ -562,9 +701,7 @@ export default function Index() {
               <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                 Gallery
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-                Moments of Impact
-              </h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Moments of Impact</h2>
             </div>
             <Button asChild variant="outline" size="sm" className="rounded-full self-start sm:self-auto">
               <Link to="/about">
@@ -581,7 +718,7 @@ export default function Index() {
       {/* CTA - Modern Glass */}
       <section className="py-16 sm:py-24 relative overflow-hidden bg-mesh">
         <div className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-gradient-to-br from-primary/30 via-amber-400/20 to-teal/30 rounded-full blur-3xl opacity-50" />
-        
+
         <div className="container px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -593,26 +730,28 @@ export default function Index() {
               <div className="w-14 h-14 sm:w-20 sm:h-20 mx-auto rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center mb-5 sm:mb-8 shadow-xl">
                 <Heart className="h-7 w-7 sm:h-10 sm:w-10 text-white" />
               </div>
-              
+
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
                 Ready to Make a <span className="text-gradient">Difference?</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Every contribution, big or small, helps us continue our mission. 
-                Join thousands who are already part of our journey.
+                Every contribution, big or small, helps us continue our mission. Join thousands who are already part of
+                our journey.
               </p>
-              
+
               <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="rounded-full px-10 h-14 text-base shine shadow-xl shadow-primary/25">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-10 h-14 text-base shine shadow-xl shadow-primary/25"
+                >
                   <Link to="/support">
                     <Heart className="h-5 w-5 mr-2" />
                     Support Our Cause
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-10 h-14 text-base border-2">
-                  <Link to="/contact">
-                    Get in Touch
-                  </Link>
+                  <Link to="/contact">Get in Touch</Link>
                 </Button>
               </div>
 
