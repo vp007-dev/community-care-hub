@@ -78,9 +78,6 @@ const healthGallery = [
   { src: "", alt: "Health camp photo 5" },
   { src: "", alt: "Health camp photo 6" },
 ];
-  { number: "100%", label: "Free Service" },
-  { number: "50+", label: "Volunteers" },
-];
 
 export default function Health() {
   return (
