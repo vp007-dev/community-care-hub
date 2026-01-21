@@ -21,6 +21,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import logo from "@/assets/logo.jpg";
+import allenImg from "@/assets/allen.jpeg";
+import panckuyiaImg from "@/assets/panckuyia.jpeg";
+import vanvasiImg from "@/assets/vanvasi.jpeg";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
 import { AnimatedHeroIllustration } from "@/components/illustrations/AnimatedHeroIllustration";
 import { GalleryGrid } from "@/components/GalleryLightbox";
@@ -218,7 +221,7 @@ const awards = [
     year: "2023",
     description: "Honoured for best social work",
     gradient: "from-amber-400 via-yellow-400 to-orange-400",
-    image: "", // Add award image URL here
+    image: "",
   },
   {
     icon: Medal,
@@ -228,7 +231,7 @@ const awards = [
     description:
       "Honored for her work in education sector by Honourable Mr. S.P Singh Baghel (MP) And Mrs. Nirmala Dixit (former President of Mahila Ayog)",
     gradient: "from-slate-300 via-gray-300 to-zinc-400",
-    image: "", // Add award image URL here
+    image: panckuyiaImg,
   },
   {
     icon: Crown,
@@ -237,7 +240,7 @@ const awards = [
     year: "2025",
     description: "Honoured by the title of social activist on women's day",
     gradient: "from-rose-400 via-pink-400 to-fuchsia-400",
-    image: "", // Add award image URL here
+    image: allenImg,
   },
   {
     icon: Award,
@@ -246,7 +249,7 @@ const awards = [
     year: "2023",
     description: "Honoured her as Nati Shakti Award for her work in health sector",
     gradient: "from-teal-400 via-cyan-400 to-blue-400",
-    image: "", // Add award image URL here
+    image: vanvasiImg,
   },
   {
     icon: Award,
@@ -255,7 +258,7 @@ const awards = [
     year: "2025",
     description: "SBI Donates 31000/- for our students",
     gradient: "from-teal-400 via-cyan-400 to-blue-400",
-    image: "", // Add award image URL here
+    image: "",
   },
   {
     icon: Award,
@@ -264,7 +267,7 @@ const awards = [
     year: "2025",
     description: "SBI Selects our students for POCSO committee member.",
     gradient: "from-teal-400 via-cyan-400 to-blue-400",
-    image: "", // Add award image URL here
+    image: "",
   },
 ];
 
