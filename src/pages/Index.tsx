@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -26,7 +27,7 @@ import panckuyiaImg from "@/assets/panckuyia.jpeg";
 import vanvasiImg from "@/assets/vanvasi.jpeg";
 import { FloatingElements } from "@/components/illustrations/FloatingElements";
 import { AnimatedHeroIllustration } from "@/components/illustrations/AnimatedHeroIllustration";
-import { GalleryGrid } from "@/components/GalleryLightbox";
+import { GalleryGrid, GalleryLightbox } from "@/components/GalleryLightbox";
 import { SlidingBanner } from "@/components/SlidingBanner";
 
 // Banner slides - add your images here
@@ -298,6 +299,12 @@ const item = {
 };
 
 export default function Index() {
+  const [awardLightboxOpen, setAwardLightboxOpen] = useState(false);
+  const [awardLightboxIndex, setAwardLightboxIndex] = useState(0);
+  
+  // Filter awards with images for lightbox
+  const awardImages = awards.filter(a => a.image).map(a => ({ src: a.image, alt: a.title }));
+  
   return (
     <Layout>
       {/* Sliding Banner Section */}
@@ -750,6 +757,14 @@ export default function Index() {
             </div>
           </motion.div>
         </div>
+        
+        {/* Award Images Lightbox */}
+        <GalleryLightbox 
+          images={awardImages}
+          initialIndex={awardLightboxIndex}
+          open={awardLightboxOpen}
+          onOpenChange={setAwardLightboxOpen}
+        />
       </section>
 
       {/* Impact Stats - Full Width */}
