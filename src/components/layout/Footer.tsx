@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Heart, Phone, Mail, MapPin, Youtube, Facebook, Instagram, ArrowUpRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpg";
+const logo = "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/logo.jpg";
 
 const quickLinks = [
   { name: "Home", href: "/" },
