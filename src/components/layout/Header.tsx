@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.jpg";
+const logo = "https://cdn.jsdelivr.net/gh/vp007-dev/community-care-hub@main/src/assets/logo.jpg";
 
 const navigation = [
   { name: "Home", href: "/" },
